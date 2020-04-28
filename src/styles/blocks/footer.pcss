@@ -1,0 +1,57 @@
+.footer {
+   background: #ccc;
+   height: 270px;
+   padding: 60px 0;
+   font-size: 12px;
+
+   &__container {
+      display: flex;
+   }
+
+   &__row {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+
+      @include tablets {
+         margin-top: 0;
+      }
+   }
+
+   &__col {
+      flex: 1;
+      &_social{
+         font-size: 12px;
+         max-width: 230px;
+         margin-right: 20px;
+      }
+
+      &_about {
+         max-width: 320px;
+      }
+   }
+
+   &__copyright {
+      font-size: 30px;
+      white-space: nowrap;
+      font-weight: 500;
+      margin-right: 5%;
+   }
+
+   &__title {
+      min-width: 120px;
+      margin-right: 5%;
+   }
+
+   &__title-by-line {
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__title-link {
+      font-size: 14px;
+      margin-top: 15px;
+      white-space: nowrap;
+   }
+}
