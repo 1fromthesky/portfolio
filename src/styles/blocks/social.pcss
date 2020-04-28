@@ -1,0 +1,49 @@
+.social {
+   display: flex;
+   // margin-right: -30px;
+
+   &__item {
+      margin-right: 30px;
+      
+      &:last-child {
+         margin-right: 0;
+      }
+   }
+   
+   &__link {
+      &:hover .social__svg {
+         background-color: #aaa;
+      }
+   }
+
+   &__svg {
+      width: 20px;
+      height: 20px;
+      background-color: #666;
+      display: block;
+   }
+
+   &_footer {
+      margin-top: 15px;
+
+      .social__item {
+         margin-right: 15px;
+
+         &:last-child {
+            margin-right: 0;
+         }
+      }
+
+      .social__link {
+         @include circle(40px, 1px, #aaa);
+         position: relative;
+      }
+
+      .social__svg {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+   }   
+}

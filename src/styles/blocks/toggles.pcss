@@ -1,0 +1,21 @@
+.toggles {
+   display: inline-flex;
+   flex-direction: column-reverse;
+   position: absolute;
+   left: 100%;
+   bottom: 10%;
+
+   &__btn {
+      width: 40px;
+      height: 40px;
+      background-color: #555;
+
+      &_prev::before {
+         content: '<';
+      }
+
+      &_next::before {
+         content: '>';
+      }
+   }
+}
