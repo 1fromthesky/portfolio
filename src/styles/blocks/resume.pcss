@@ -1,79 +1,87 @@
 .resume {
+   display: flex;
+   font-weight: 600;
 
-   &__container {
-      display: flex;
-      align-items: flex-start;
-
-      @include phones {
-         flex-direction: column;
-         align-items: center;
-         margin: 0 3%;
-      }
+   &__avatar {
+      width: 200px;
+      margin: 0 auto;
    }
 
-   &__left-col {
+   &__info {
+      width: 36%;
       min-width: 200px;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-
-      @include phones {
-         align-items: center;
-         margin: 0 3%;
-         min-width: initial;
-      }
    }
 
-   &__right-col {
-      // flex: 1;
-      margin-left: 15%;
-
-      @include tablets {
-         margin: 0 6%;
-      }
-
-      @include phones {
-         align-items: center;
-         margin: 0 3%;
-      }
-   }
-
-   &__img-wrap {
-      width: 130px;
-      border-radius: 50%;
-      overflow: hidden;
-   }
-
-   &__img {
-      background: #000;
-      width: auto;
-      height: 130px;
-   }
-
-   &__list {
+   &__info-list {
+      margin-top: 70px;
       display: flex;
    }
 
-   // &__item {
-   // }
-
-   &__item-left {
+   &__info-item {
       width: 100%;
       display: inline-block;
       white-space: nowrap;
+      
+      p {
+         margin-top: 12px;
+
+         &:first-of-type {
+            margin-top: 0;
+         }
+      }
+
+      &_left {
+         p {
+            opacity: .3;
+         }
+      }
+      // &_right {
+      //    p {
+            
+      //    }
+      // }
    }
 
-   &__item-right {
-      width: 100%;
-      display: inline-block;
-      white-space: nowrap;
+   &__content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-left: 8%;
    }
 
    &__title {
-      margin-top: 10px;
+      margin-top: 5px;
+      font-size: 36px;
+      font-weight: 700;
+      white-space: nowrap;
+
+      @include tablets {
+         font-size: 30px;
+      }
    }
 
-   // &__about {
-   // }
-   
+   &__about {
+      margin: 20px 0 20px;
+   }
+   &__ps {
+      margin-top: auto;
+      position: relative;
+      font-style: italic;
+      font-weight: 500;
+
+      &::before {
+         content: '*';
+         position: absolute;
+         left: -10%;
+         top: -10%;
+         display: inline-block;
+         font-size: 48px;
+         line-height: 1;
+         transform: rotate(10deg);
+         color: rgba(#db0200, .1);
+         z-index: 100;
+      }
+   }
 }

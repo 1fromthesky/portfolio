@@ -3,6 +3,6 @@ if (process.env.NODE_ENV === "development") {
   require("file-loader!./index.pug");
 }
 
-import "./scripts/skills";
-import "./scripts/feedback-slide";
-import "./scripts/form";
+// import "./scripts/skills";
+// import "./scripts/feedback-slide";
+// import "./scripts/form";

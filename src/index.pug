@@ -10,180 +10,183 @@ html(lang="ru")
   body
     .wrapper
       .wrapper-container
-        section.section.hero
-          .container
-            header.header
-              .logo BA
-              nav.nav
-                ul.nav__list
-                  li.nav__item
-                    a.nav__link(href='#') Главаная
-                  li.nav__item
-                    a.nav__link(href='#') Обо мне
-                  li.nav__item
-                    a.nav__link(href='#') Навыки
-                  li.nav__item
-                    a.nav__link(href='#') Работы
-                  li.nav__item
-                    a.nav__link(href='#') Отзывы
-                  li.nav__item
-                    a.nav__link(href='#') Связаться
-              ul.social
-                li.social__item
-                  a.social__link(href='#')
-                    svg.social__svg
-                      use(xlink:href='#')
-                li.social__item
-                  a.social__link(href='#')
-                    svg.social__svg
-                      use(xlink:href='#')
-                li.social__item
-                  a.social__link(href='#')
-                    svg.social__svg
-                      use(xlink:href='#')
-            .hero__title
-              h1.hero__title-by-line
-                span Name
-                span Surname
-              a.hero__title-link(href='#')
-                | Личный сайт
-                br
-                | веб-разработчика
-            button.hero__scroll Скролл
-        section.section.resume
-          .container.container_smoll
-            .resume__container
-              .resume__left-col
-                .resume__img-wrap
-                  img.resume__img(src='#', alt='photo')
-                ul.resume__list
-                  li.resume__item
-                    p.resume__item-left Проживаю
-                    p.resume__item-left Возраст
-                    p.resume__item-left Родился
-                  li.resume__item
-                    p.resume__item-right Проживаю
-                    p.resume__item-right Возраст
-                    p.resume__item-right 1 месяц 2000
-              .resume__right-col
-                p Привет, меня зовут
-                h2.resume__title Имя Фамилия
-                .resume__about
-                  | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quod voluptatibus quasi? Nostrum, harum dolorum quam totam ducimus dolorem ipsum.
-                .resume__about
-                  | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo modi quibusdam rem possimus. Debitis voluptas recusandae at quae excepturi. Ex unde excepturi voluptatibus itaque.
-        section.section.skills
-        section.section.portfolio
-          .container
-            h2.section__title Мои работы
-            .portfolio__contet
-              .portfolio__slider
-                .mag-slider
-                  .toggles
-                    button.toggles__btn.toggles__btn_prev
-                    button.toggles__btn.toggles__btn_next
-                  ul.mag-slider__list
-                    li.mag-slider__item
-                    li.mag-slider__item
-                    li.mag-slider__item
-                    li.mag-slider__item
-              .portfolio__about
-        section.section.feedback
-          .container
-            .feedback__title-row
-              h2.feedback__title Что обо мне говорят
-              .feedback__toggles
-                button.feedback__toggles-btn.feedback__toggles-btn_prev
-                button.feedback__toggles-btn.feedback__toggles-btn_next
-            .feedback__slider
-              ul.feedback__slider-move
-                li.feedback__slider-item
-                  .feedback__slider-item-deco
-                  .feedback__slider-item-content
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, magni blanditiis dolor, sit amet consectetur a error quidem vitae incidunt.
-                    .feedback__slider-item-content-card
-                      .feedback__slider-item-content-logo
-                        // <img src="#" alt="logo"></div>
-                      .feedback__slider-item-content-name
-                        div Name Surname
-                        div Developer
-                li.feedback__slider-item
-                  .feedback__slider-item-deco
-                  .feedback__slider-item-content
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, magni blanditiis dolor, sit amet consectetur a error quidem vitae incidunt.
-                    .feedback__slider-item-content-card
-                      .feedback__slider-item-content-logo
-                        // <img src="#" alt="logo"></div>
-                      .feedback__slider-item-content-name
-                        div Name Surname
-                        div Developer
-                li.feedback__slider-item 3 Lorem ipsum dolor sit.
-                li.feedback__slider-item 4 Lorem ipsum dolor sit.
-                li.feedback__slider-item 5 Lorem ipsum dolor sit.
-                li.feedback__slider-item 6 Lorem ipsum dolor sit.
-            .feedback__title-row
-              h2.feedback__title Связаться со мной
-            form.form-connect(name='formConnect')
-              .form-connect__row
-                label.form-connect__label
-                  span.form-connect__title Введите ваше имя
-                  span.form-connect__icon
-                  input.form-connect__input(type='text', name='username')
-                label.form-connect__label
-                  span.form-connect__title Введите ваш email
-                  span.form-connect__icon
-                  input.form-connect__input(type='email', name='email')
-              .form-connect__row
-                label.form-connect__label
-                  span.form-connect__title Сообщение к письму
-                  span.form-connect__icon
-                  textarea.form-connect__input.form-connect__textarea(name='comment')
-              button.form-connect__btn(type='submit') Отправить
-      footer.footer
-        .container.footer__container
-          .footer__copyright © 2020
-          .footer__title
-            h1.footer__title-by-line
-              span Name
-              span Surname
-            a.footer__title-link(href='#')
-              | Личный сайт
-              br
-              | веб-разработчика
-          .footer__col
-            nav.nav
-              ul.nav__list
-                li.nav__item
-                  a.nav__link(href='#') Главаная 
-                li.nav__item
-                  a.nav__link(href='#') Обо мне
-                li.nav__item
-                  a.nav__link(href='#') Навыки 
-                li.nav__item
-                  a.nav__link(href='#') Работы 
-                li.nav__item
-                  a.nav__link(href='#') Отзывы 
-                li.nav__item
-                  a.nav__link(href='#') Связаться 
-            .footer__row
-              .footer__col.footer__col_social
-                .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-                ul.social.social_footer
-                  li.social__item
-                    a.social__link(href='#')
-                      svg.social__svg
-                        use(xlink:href='#')
-                  li.social__item
-                    a.social__link(href='#')
-                      svg.social__svg
-                        use(xlink:href='#')
-                  li.social__item
-                    a.social__link(href='#')
-                      svg.social__svg
-                        use(xlink:href='#')
-              .footer__col.footer__col_about
-                .footer__text
-                  | Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-                span Martin Galding
+        .section-paralax
+          section.section.hero
+            .container
+              header.header
+                .header__logo
+                  .logo АК
+                .header__nav
+                  nav.nav
+                    - var items = ["Главаная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                      ul.nav__list
+                        each item in items                
+                          li.nav__item
+                            a.nav__link(href='#') #{item}
+                .header__social
+                  - var icons = ["insta", "vk", "github"];
+                    ul.social
+                      each item in icons
+                        li.social__item
+                          a.social__link(href='#')
+                            +icon(item, "social__svg")
+              .hero__content
+                .user-data
+                  .user-data__desc
+                    span Личный сайт
+                    span веб разработчика
+                  .user-data__name 
+                    span Name
+                    span Surnamt
+              a(href='#').hero__scroll-btn.scroll-down-btn
+                .scroll-down-btn__svg-container
+                  +icon('scroll', 'scroll-down-btn__svg')
+
+                  
+          section.section.resume-section
+            .container.container_smoll
+              .resume
+                .resume__info
+                  .resume__avatar
+                    .avatar
+                      +image('content/user.jpg', 'avatar__img', 'user_photo')
+                  ul.resume__info-list
+                    li.resume__info-item.resume__info-item_left
+                      p Проживаю:
+                      p Возраст:
+                      p Родился:
+                    li.resume__info-item.resume__info-item_right
+                      p Проживаю
+                      p Возраст
+                      p Родился
+                .resume__content
+                  .resume__disclamer Привет меня зовут
+                  h2.resume__title Имя Фамилия
+                  .resume__about
+                    p Lorem ipsum dolor sit amet consectetur, adipisicing. Architecto quod voluptatibus quasi? Nostrum, harum dolorum quam totam ducimus dolorem ipsum.
+                  .resume__ps
+                    p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo modi quibusdam rem possimus. Debitis voluptas recusandae at quae excepturi. Ex unde excepturi voluptatibus itaque.
+                    p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo modi quibusdam rem possimus. Debitis voluptas recusandae at quae excepturi. Ex unde excepturi voluptatibus itaque.
+
+        section.section.values-section
+          .arrow-section.values-section__arrow
+            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+              polygon(points="0,0 0,100 1000,100")
+            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+              polygon(points="1000,0 1000,100 0,100")
+              
+        //- section.section.portfolio
+        //-   .container
+        //-     h2.section__title Мои работы
+        //-     .portfolio__contet
+        //-       .portfolio__slider
+        //-         .mag-slider
+        //-           .toggles
+        //-             button.toggles__btn.toggles__btn_prev
+        //-             button.toggles__btn.toggles__btn_next
+        //-           ul.mag-slider__list
+        //-             li.mag-slider__item
+        //-             li.mag-slider__item
+        //-             li.mag-slider__item
+        //-             li.mag-slider__item
+        //-       .portfolio__about
+
+      //-   section.section.feedback
+      //-     .container
+      //-       .feedback__title-row
+      //-         h2.feedback__title Что обо мне говорят
+      //-         .feedback__toggles
+      //-           button.feedback__toggles-btn.feedback__toggles-btn_prev
+      //-           button.feedback__toggles-btn.feedback__toggles-btn_next
+      //-       .feedback__slider
+      //-         ul.feedback__slider-move
+      //-           li.feedback__slider-item
+      //-             .feedback__slider-item-deco
+      //-             .feedback__slider-item-content
+      //-               p
+      //-                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, magni blanditiis dolor, sit amet consectetur a error quidem vitae incidunt.
+      //-               .feedback__slider-item-content-card
+      //-                 .feedback__slider-item-content-logo
+      //-                   // <img src="#" alt="logo"></div>
+      //-                 .feedback__slider-item-content-name
+      //-                   div Name Surname
+      //-                   div Developer
+      //-           li.feedback__slider-item
+      //-             .feedback__slider-item-deco
+      //-             .feedback__slider-item-content
+      //-               p
+      //-                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, magni blanditiis dolor, sit amet consectetur a error quidem vitae incidunt.
+      //-               .feedback__slider-item-content-card
+      //-                 .feedback__slider-item-content-logo
+      //-                   // <img src="#" alt="logo"></div>
+      //-                 .feedback__slider-item-content-name
+      //-                   div Name Surname
+      //-                   div Developer
+      //-           li.feedback__slider-item 3 Lorem ipsum dolor sit.
+      //-           li.feedback__slider-item 4 Lorem ipsum dolor sit.
+      //-           li.feedback__slider-item 5 Lorem ipsum dolor sit.
+      //-           li.feedback__slider-item 6 Lorem ipsum dolor sit.
+      //-       .feedback__title-row
+      //-         h2.feedback__title Связаться со мной
+      //-       form.form-connect(name='formConnect')
+      //-         .form-connect__row
+      //-           label.form-connect__label
+      //-             span.form-connect__title Введите ваше имя
+      //-             span.form-connect__icon
+      //-             input.form-connect__input(type='text', name='username')
+      //-           label.form-connect__label
+      //-             span.form-connect__title Введите ваш email
+      //-             span.form-connect__icon
+      //-             input.form-connect__input(type='email', name='email')
+      //-         .form-connect__row
+      //-           label.form-connect__label
+      //-             span.form-connect__title Сообщение к письму
+      //-             span.form-connect__icon
+      //-             textarea.form-connect__input.form-connect__textarea(name='comment')
+      //-         button.form-connect__btn(type='submit') Отправить
+      //- footer.footer
+      //-   .container.footer__container
+      //-     .footer__copyright © 2020
+      //-     .footer__title
+      //-       h1.footer__title-by-line
+      //-         span Name
+      //-         span Surname
+      //-       a.footer__title-link(href='#')
+      //-         | Личный сайт
+      //-         br
+      //-         | веб-разработчика
+      //-     .footer__col
+      //-       nav.nav
+      //-         ul.nav__list
+      //-           li.nav__item
+      //-             a.nav__link(href='#') Главаная 
+      //-           li.nav__item
+      //-             a.nav__link(href='#') Обо мне
+      //-           li.nav__item
+      //-             a.nav__link(href='#') Навыки 
+      //-           li.nav__item
+      //-             a.nav__link(href='#') Работы 
+      //-           li.nav__item
+      //-             a.nav__link(href='#') Отзывы 
+      //-           li.nav__item
+      //-             a.nav__link(href='#') Связаться 
+      //-       .footer__row
+      //-         .footer__col.footer__col_social
+      //-           .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+      //-           ul.social.social_footer
+      //-             li.social__item
+      //-               a.social__link(href='#')
+      //-                 svg.social__svg
+      //-                   use(xlink:href='#')
+      //-             li.social__item
+      //-               a.social__link(href='#')
+      //-                 svg.social__svg
+      //-                   use(xlink:href='#')
+      //-             li.social__item
+      //-               a.social__link(href='#')
+      //-                 svg.social__svg
+      //-                   use(xlink:href='#')
+      //-         .footer__col.footer__col_about
+      //-           .footer__text
+      //-             | Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+      //-           span Martin Galding
