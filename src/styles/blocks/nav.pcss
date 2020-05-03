@@ -1,18 +1,15 @@
 .nav {
-   font-weight: 600;
-   
-   @include tablets {
-      display: none;
-   }
+   font-weight: 500;
    
    &__list {
       display: flex;
+      justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
    }
 
    &__item {
-      margin-right: 60px;
-      // ! не резина
+      margin-right: 4%;
       
       &:last-child {
          margin-right: 0;
@@ -20,7 +17,10 @@
    }
 
    &__link {
-      // padding: 5px 5px;
       white-space: nowrap;
+
+      &:hover {
+         text-shadow: 0 0 .65px, 0 0 .65px;
+      }
    }
 }

@@ -1,0 +1,33 @@
+.perform-section {
+   min-height: 950px;
+   position: relative;
+
+   &__content {
+      display: flex;
+   }
+
+   &__title {
+      font-size: 36px;
+      font-weight: 700;
+   }
+
+   &__arrow {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      transform: rotate(180deg);
+
+      .arrow-section__item {
+         height: 96px;
+
+         @include tablets {
+            height: 75px;
+         }
+      
+         @include phones {
+            height: 50px;
+         }
+      }
+   }
+}

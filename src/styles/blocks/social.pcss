@@ -1,6 +1,5 @@
 .social {
    display: flex;
-   // margin-right: -30px;
 
    &__item {
       margin-right: 30px;
@@ -13,37 +12,13 @@
    &__link {
       width: 25px;
       height: 25px;
+
+      &:hover .social__svg {
+         fill: $main;
+      }
    }
 
    &__svg {
       fill: currentColor;
-
-      &:hover {
-         fill: red;
-      }
    }
-// ==============================================
-   &_footer {
-      margin-top: 15px;
-
-      .social__item {
-         margin-right: 15px;
-
-         &:last-child {
-            margin-right: 0;
-         }
-      }
-
-      .social__link {
-         @include circle(40px, 1px, #aaa);
-         position: relative;
-      }
-
-      .social__svg {
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-      }
-   }   
 }

@@ -1,0 +1,42 @@
+.slider-projects {
+
+   &__wrap {
+      padding-right: 157px;
+   }
+
+   &__window {
+      background: #ccc;
+      width: 977px;
+      height: 550px;
+      position: relative;
+   }
+
+   &__list {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+   }
+
+   &__item {
+      width: 180px;
+      height: auto;
+      max-height: 120px;
+      // ! высота 100
+      position: relative;
+
+      &:hover {
+         outline: 2px solid red;
+         z-index: 10;
+      }
+   }
+
+   &__link {
+      
+   }
+
+   &__toggles {
+      position: absolute;
+      right: 0;
+      top: 100%;
+   }
+}

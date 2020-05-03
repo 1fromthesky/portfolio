@@ -1,38 +1,40 @@
 .footer {
-   background: #ccc;
-   height: 270px;
-   padding: 60px 0;
-   font-size: 12px;
+   background-color: $footer-color;
+   padding: 90px 0;
+   color: rgba(255, 255, 255, 0.102);
 
    &__container {
       display: flex;
    }
+   &__column {
+      padding-right: 20px;
+      display: flex;
+      flex: 1;
+
+      @include desktop {
+         flex-direction: column;
+         flex: 0.6;
+      }
+   }
+   &__column_flex-col {
+      flex-direction: column;
+      flex: 2.5;
+   }
 
    &__row {
+      color: rgba(255, 255, 255, 0.302);
       margin-top: 40px;
       display: flex;
       justify-content: space-between;
 
-      @include tablets {
-         margin-top: 0;
-      }
-   }
-
-   &__col {
-      flex: 1;
-      &_social{
-         font-size: 12px;
-         max-width: 230px;
-         margin-right: 20px;
-      }
-
-      &_about {
-         max-width: 320px;
+      @include desktop {
+         flex-direction: column;
       }
    }
 
    &__copyright {
-      font-size: 30px;
+      font-size: 48px;
+      line-height: 1;
       white-space: nowrap;
       font-weight: 500;
       margin-right: 5%;
@@ -50,8 +52,52 @@
    }
 
    &__title-link {
-      font-size: 14px;
       margin-top: 15px;
       white-space: nowrap;
    }
+
+   &__text-sig {
+      color: #fff;
+      margin-top: 20px;
+   }
+
+   &__nav {
+      max-width: 700px;
+      color: #fff;
+
+      .nav__list {
+         justify-content: flex-start;
+      }
+      .nav__item {
+         margin-right: 55px;
+      }
+   }
+
+   &__social {
+      margin-top: 15px;
+
+      .social__item {
+         margin-right: 15px;
+
+         &:last-child {
+            margin-right: 0;
+         }
+      }
+
+      .social__link {
+         @include circle(40px, 1px, 'initial');
+         position: relative;
+
+         &:hover {
+            border-color: $main;
+         }
+      }
+
+      .social__svg {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+   }   
 }
