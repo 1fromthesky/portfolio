@@ -1,0 +1,46 @@
+.feedback-review {
+   padding: 4% 4% 4% 0;
+   min-width: 50%;
+   display: flex;
+
+   &__item-quote {
+      flex-shrink: 3;
+      min-width: 17%;
+      margin-right: 7%;
+      fill: rgba($text-color, .05);
+
+      @include phones {
+         display: none;
+      }
+   }
+
+   &__item-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+   }
+   &__item-content-card {
+      display: flex;
+      margin-top: 20px;
+   }
+
+   &__item-content-logo {
+      display: block;
+      min-width: 52PX;
+      width: 24%;
+      // height: 76px;
+   }
+
+   &__item-content-name {
+      margin-left: 10%;
+   }
+
+   &__name {
+      font-size: 18px;
+      font-weight: 700;
+      color: $text-color;
+   } 
+   &__rank {
+      color: rgba($text-color, .3);
+   }
+}

@@ -5,193 +5,23 @@ include ./mixins.pug
 
 <!DOCTYPE html>
 html(lang="ru")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Portfolio
-  body
-    .wrapper
-      .wrapper-container
-        .section-start
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Portfolio
+	body
+		.wrapper
+			.wrapper-container
+				.section-start
+					include components/hero
+					include components/resume
 
-          section.section.hero
-            .container
-              header.header
-                .header__logo
-                  .logo АК
-                .header__nav
-                  nav.nav
-                    ul.nav__list
-                      each item in items                
-                        li.nav__item
-                          a.nav__link(href='#') #{item}
-                .header__social
-                  ul.social
-                    each item in icons
-                      li.social__item
-                        a.social__link(href='#')
-                          +icon(item, "social__svg")
-              .hero__content
-                .user-data
-                  .user-data__desc
-                    span Личный сайт
-                    span веб разработчика
-                  .user-data__name 
-                    span Name 
-                    span Surnamt
-              a(href='#').hero__scroll-btn.scroll-down-btn
-                .scroll-down-btn__svg-container
-                  +icon('scroll', 'scroll-down-btn__svg')
-          section.section.resume-section
-            .container.container_smoll
-              .resume
-                .resume__info
-                  .resume__avatar
-                    .avatar
-                      +image('content/user.jpg', 'avatar__img', 'user_photo')
-                  ul.resume__info-list
-                    li.resume__info-item.resume__info-item_left
-                      p Проживаю:
-                      p Возраст:
-                      p Родился:
-                    li.resume__info-item.resume__info-item_right
-                      p Проживаю
-                      p Возраст
-                      p Родился
-                .resume__content
-                  .resume__disclamer hello world...
-                  h2.resume__title Name Surnamt
-                  .resume__about
-                    p Lorem ipsum dolor sit amet consectetur, adipisicing. Architecto quod voluptatibus quasi? Nostrum, harum dolorum quam totam ducimus dolorem ipsum.
-                  .resume__ps
-                    p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo modi quibusdam rem possimus. Debitis voluptas recusandae at quae excepturi. Ex unde excepturi voluptatibus itaque.
-                    p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo modi quibusdam rem possimus. Debitis voluptas recusandae at quae excepturi. Ex unde excepturi voluptatibus itaque.
+				include components/values
+				include components/perform
 
-        section.section.values-section
-          .arrow-section.values-section__arrow
-            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
-              polygon(points="0,0 0,100 1000,100")
-            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
-              polygon(points="1000,0 1000,100 0,100")
-        section.section.section_flex-column-center.perform-section
-          .container
-            h2.perform-section__title Мои работы
-            .perform-section__content
-              .slider-projects
-                .slider-projects__wrap
-                  .slider-projects__window
-                    ul.slider-projects__list
-                      li.slider-projects__item.slider-projects__item_activ
-                        a.slider-projects__link(href='#')
-                          +image('content/pro1.jpg', 'slider-projects__img', 'project-1')
-                      li.slider-projects__item
-                        a.slider-projects__link(href='#')
-                          +image('content/pro2.jpg', 'slider-projects__img', 'project-2')
-                      li.slider-projects__item
-                        a.slider-projects__link(href='#')
-                          +image('content/pro3.jpg', 'slider-projects__img', 'project-3')
-                      li.slider-projects__item
-                        a.slider-projects__link(href='#')
-                          +image('content/pro4.jpg', 'slider-projects__img', 'project-4')
-                    .slider-projects__toggles
-                      button.toggles__btn.toggles__btn_prev
-                      button.toggles__btn.toggles__btn_next
-            .description
-          .arrow-section.perform-section__arrow
-            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
-              polygon(points="1000,0 1000,100 0,100")
-            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
-              polygon(points="0,0 0,100 1000,100")
-        .section-finish
+				.section-finish
+					include components/feedback
+					include components/form
 
-          section.section.section_flex-column-center.feedback
-            .container
-              .feedback__title-row
-                h2.feedback__title Что обо мне говорят
-                .feedback__toggles
-                  button.feedback__toggles-btn.feedback__toggles-btn_prev
-                  button.feedback__toggles-btn.feedback__toggles-btn_next
-              .feedback__slider
-                ul.feedback__slider-move
-                  li.feedback__slider-item
-                    .feedback__slider-item-deco
-                    .feedback__slider-item-content
-                      p
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, magni blanditiis dolor, sit amet consectetur a error quidem vitae incidunt.
-                      .feedback__slider-item-content-card
-                        .feedback__slider-item-content-logo
-                          // <img src="#" alt="logo"></div>
-                        .feedback__slider-item-content-name
-                          div Name Surname
-                          div Developer
-                  li.feedback__slider-item
-                    .feedback__slider-item-deco
-                    .feedback__slider-item-content
-                      p
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, magni blanditiis dolor, sit amet consectetur a error quidem vitae incidunt.
-                      .feedback__slider-item-content-card
-                        .feedback__slider-item-content-logo
-                          // <img src="#" alt="logo"></div>
-                        .feedback__slider-item-content-name
-                          div Name Surname
-                          div Developer
-                  li.feedback__slider-item 3 Lorem ipsum dolor sit.
-                  li.feedback__slider-item 4 Lorem ipsum dolor sit.
-                  li.feedback__slider-item 5 Lorem ipsum dolor sit.
-                  li.feedback__slider-item 6 Lorem ipsum dolor sit.
-          section.section.connect
-            .container
-              h2.connect__title Связаться со мной
-              form.form-connect(name='formConnect')
-                .form-connect__row
-                  label.form-connect__label
-                    .form-connect__icon-wrap
-                      +icon('user', 'form-connect__icon')
-                    input.form-connect__input(type='text', name='username', required="")
-                    .form-connect__title Введите ваше имя
-                  label.form-connect__label
-                    .form-connect__icon-wrap
-                      +icon('envelope', 'form-connect__icon')
-                    input.form-connect__input(type='email', name='email', required="")
-                    .form-connect__title Введите ваш email
-                .form-connect__row
-                  label.form-connect__label
-                    .form-connect__icon-wrap
-                      +icon('message', 'form-connect__icon')
-                    textarea.form-connect__input.form-connect__textarea(name='comments', required="")
-                    .form-connect__title Сообщение к письму
-                button.form-connect__btn(type='submit' name="btn-submit") Отправить
-
-      footer.footer
-        .container.footer__container
-          .footer__column
-            .footer__copyright © 2020
-            .footer__title
-              h1.footer__title-by-line
-                span Name
-                span Surname
-              a.footer__title-link(href='#')
-                | Личный сайт
-                br
-                | веб-разработчика
-          .footer__column.footer__column_flex-col
-            .footer__nav
-              nav.nav
-                - var items = ["Главаная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                  ul.nav__list
-                    each item in items                
-                      li.nav__item
-                        a.nav__link(href='#') #{item}
-            .footer__row
-              .footer__column.footer__column_flex-col
-                .footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-                  .footer__social                
-                    ul.social
-                      each item in icons
-                        li.social__item
-                          a.social__link(href='#')
-                            +icon(item, "social__svg")
-              .footer__column.footer__column_flex-col
-                .footer__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-                .footer__text-sig Martin Galding
+			include components/footer

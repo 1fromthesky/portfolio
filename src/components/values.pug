@@ -1,0 +1,46 @@
+-
+   var skills = [
+      ['Frontend', [
+         ['HTML5', '-40s'],
+         ['CSS3', '-10s'],
+         ['JavaScript', '-20s'],
+         ['Vue.js Jquery', '-20s']]
+      ],
+      ['Workflow', [
+         ['GIT', '-50s'],
+         ['Terminal', '-15s'],
+         ['Gulp', '-20s'],
+         ['Webpack', '-80s']]
+      ]
+   ];
+
+section.section.section_flex-column-center.values-section
+   .arrow-section.values-section__arrow
+      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+         polygon(points="0,0 0,100 1000,100")
+      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+         polygon(points="1000,0 1000,100 0,100")
+   .container
+      .values-section__about
+         h2.values-section__title Чем я могу быть полезен вам
+         .values-section__text 
+            p Lorem olor sit amet consectetur adipisicing elit. Quo, nobis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi, cumque!
+      .values-section__skills
+         .values-section__image
+            +image('content/bag.png', 'values-section__img', 'bag-skills')
+         ul.values
+            each item in skills
+               li.values__row
+                  h3.values__row-title #{item[0]}
+                  ul.values__list-row
+                     each skill in item[1]
+                        li.values__item-row
+                           .skill
+                              svg.skill__svg(viewBox='0 0 200 200' preserveAspectRatio="none")
+                                 defs.skill__defs
+                                    linearGradient(x1='0%' y1='50%' x2='100%' y2='100%')#skill__gradient
+                                       stop(offset='60%' stop-color="#5500f2").skill__fill_start
+                                       stop(offset='100%' stop-color="#ad00ed").skill__fill_stop
+                                 circle.skill__circle.skill__circle_under(cx='100' cy='100' r='67')
+                                 circle.skill__circle.skill__circle_over(cx='100' cy='100' r='67' stroke='url(#skill__gradient)' transform='rotate(-180 100 100)' style=`animation-delay: ${skill[1]};`)
+                              .skill__title #{skill[0]}

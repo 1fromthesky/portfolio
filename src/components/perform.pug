@@ -1,0 +1,29 @@
+- 
+   var projects = [
+      ['pro1.jpg', 'project-1', '#' ],
+      ['pro2.jpg', 'project-2', '#' ],
+      ['pro3.jpg', 'project-3', '#' ],
+      ['pro4.jpg', 'project-4', '#' ]
+   ];
+
+section.section.section_flex-column-center.perform-section
+   .container
+      h2.perform-section__title Мои работы
+      .perform-section__content
+         .slider-projects
+            .slider-projects__wrap
+               .slider-projects__window
+                  ul.slider-projects__list
+                     each item in projects
+                        li.slider-projects__item.slider-projects__item_activ
+                           a.slider-projects__link(href=`${item[2]}`)
+                              +image('content/'+item[0], 'slider-projects__img', item[1])
+                  .slider-projects__toggles
+                     button.toggles__btn.toggles__btn_prev
+                     button.toggles__btn.toggles__btn_next
+         .description
+   .arrow-section.perform-section__arrow
+      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+         polygon(points="1000,0 1000,100 0,100")
+      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+         polygon(points="0,0 0,100 1000,100")

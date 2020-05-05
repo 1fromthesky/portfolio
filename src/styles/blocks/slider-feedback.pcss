@@ -1,0 +1,16 @@
+.slider-feedback {
+   max-width: 930px;
+   width: 100%;
+   max-height: 500px;
+   font-weight: 600;
+   color: rgba($text-color, .5);
+   overflow: hidden;
+
+   &__window {
+      display: flex;
+      position: relative;
+      right: 0;
+      will-change: right;
+      transition: right 1s ease-in-out;
+   }
+}

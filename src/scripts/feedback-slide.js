@@ -52,8 +52,8 @@
 // ==============
 const prevToggle = document.querySelector('.feedback__toggles-btn_prev');
 const nextToggle = document.querySelector('.feedback__toggles-btn_next');
-const sliderMove = document.querySelector('.feedback__slider-move');
-const sliderItem = document.querySelectorAll('.feedback__slider-item');
+const sliderMove = document.querySelector('.slider-feedback__window');
+const sliderItem = document.querySelectorAll('.feedback-review');
 
 const minRight = 0;
 const maxRight = sliderItem.length * 50 - 100;
@@ -62,7 +62,7 @@ let currentRight = 0;
 
 nextToggle.addEventListener('click', function(event) {
    event.preventDefault();
-
+   
    if (currentRight < maxRight) {
       currentRight += step;
       sliderMove.style.right = currentRight + '%';

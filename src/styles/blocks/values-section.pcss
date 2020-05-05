@@ -1,10 +1,41 @@
 .values-section {
    position: relative;
+   min-height: 900Px;
 
    &__arrow {
       position: absolute;
       bottom: 100%;
       left: 0;
       right: 0;
+   }
+
+   &__about {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto;
+   }
+
+   &__skills {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 100px;
+   }
+
+   &__image {
+      bottom: 0;
+      flex: 1;
+      position: absolute;
+      left: -20%;
+   }
+
+   &__title {
+      font-size: 30px;
+      font-weight: 700;
+   }
+
+   &__text {
+      color: rgba($text-color, .5);
+      font-weight: 600;
    }
 }
