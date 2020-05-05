@@ -1,11 +1,15 @@
 .slider-projects {
+   // width: 51vmax;
+   min-width: 625Px;
+   // height: 28vmax;
+   min-height: 355Px;
+   background: #ccc;
 
-   &__wrap {
-      padding-right: 157px;
-   }
+   // &__wrap {
+      // padding-right: 157px;
+   // }
 
    &__window {
-      background: #ccc;
       width: 977px;
       height: 550px;
       position: relative;
@@ -19,24 +23,36 @@
 
    &__item {
       width: 180px;
-      height: auto;
-      max-height: 120px;
+      height: 100px;
       // ! высота 100
       position: relative;
 
       &:hover {
-         outline: 2px solid red;
+         // outline: 2px solid red;
          z-index: 10;
       }
    }
 
-   &__link {
-      
-   }
-
    &__toggles {
+      display: flex;
       position: absolute;
       right: 0;
       top: 100%;
+
+      &-btn {
+         width: 60px;
+         height: 60px;
+         display: block;
+         background-color: initial;
+         position: relative;
+      }
+   }
+
+
+   &__link {
+      height: auto;
+   }
+   &__img {
+      
    }
 }

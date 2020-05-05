@@ -15,11 +15,6 @@
    ];
 
 section.section.section_flex-column-center.values-section
-   .arrow-section.values-section__arrow
-      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
-         polygon(points="0,0 0,100 1000,100")
-      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
-         polygon(points="1000,0 1000,100 0,100")
    .container
       .values-section__about
          h2.values-section__title Чем я могу быть полезен вам
@@ -44,3 +39,8 @@ section.section.section_flex-column-center.values-section
                                  circle.skill__circle.skill__circle_under(cx='100' cy='100' r='67')
                                  circle.skill__circle.skill__circle_over(cx='100' cy='100' r='67' stroke='url(#skill__gradient)' transform='rotate(-180 100 100)' style=`animation-delay: ${skill[1]};`)
                               .skill__title #{skill[0]}
+   .arrow-section.values-section__arrow
+      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+         polygon(points="0,0 0,100 1000,100")
+      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
+         polygon(points="1000,0 1000,100 0,100")

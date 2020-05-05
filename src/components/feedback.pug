@@ -11,14 +11,16 @@ section.section.section_flex-column-center.feedback
       .feedback__title-row
          h2.feedback__title Что обо мне говорят
          .feedback__toggles
-            button.feedback__toggles-btn.feedback__toggles-btn_prev
-            button.feedback__toggles-btn.feedback__toggles-btn_next
+            a.feedback__toggles-btn.feedback__toggles-btn_prev
+               +icon('arrow-down', 'toggles-svg-prev')
+            a.feedback__toggles-btn.feedback__toggles-btn_next
+               +icon('arrow-down', 'toggles-svg-next')
       .slider-feedback
          ul.slider-feedback__window
             each item in comment
                li.feedback-review
                   .feedback-review__item-quote
-                     +icon('quote', '.feedback-review__item-quote-svg')
+                     +icon('quote', 'feedback-review__item-quote-svg')
                   .feedback-review__item-content
                      p #{item[3]} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, commodi!
                      .feedback-review__item-content-card

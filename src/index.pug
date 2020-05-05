@@ -1,7 +1,8 @@
+include ./mixins.pug
+
 - var items = ["Главаная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
 - var icons = ["insta", "vk", "github"];
 
-include ./mixins.pug
 
 <!DOCTYPE html>
 html(lang="ru")
@@ -14,13 +15,16 @@ html(lang="ru")
 		.wrapper
 			.wrapper-container
 				.section-start
+				include components/parallax-mount
 					include components/hero
 					include components/resume
+					include components/parallax-mount
 
 				include components/values
 				include components/perform
 
 				.section-finish
+				include components/parallax-buddha
 					include components/feedback
 					include components/form
 

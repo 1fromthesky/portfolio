@@ -20,36 +20,7 @@
          margin: 0 10px;
          background-color: initial;
          position: relative;
-   
-         &_prev::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
-            background: url('/src/images/icons/arrow-down.svg') center center / contain no-repeat;
-            fill: $text-color;
-         }
 
-         &_next::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
-            background: url('/src/images/icons/arrow-down.svg') center center / contain no-repeat;
-            fill: $text-color;
-         }
-
-         &_prev {
-            transform: rotate(180deg);
-         }
       }
    }
 }

@@ -6,12 +6,12 @@ const submitFormBtn = document.querySelector('.form-connect__btn');
 
 
 
-submitFormBtn.addEventListener('click', event => {
-   event.preventDefault()
+// submitFormBtn.addEventListener('click', event => {
+//    event.preventDefault()
    
-   console.log(formConnect.elements.username.value);
-   console.log(formConnect.elements.email.value);
-   console.log(formConnect.elements.comment.value);
+//    console.log(formConnect.elements.username.value);
+//    console.log(formConnect.elements.email.value);
+//    console.log(formConnect.elements.comment.value);
    
    // const data = new FormData() 
    // data.append('User', formConnect.elements.username.value);
@@ -21,4 +21,4 @@ submitFormBtn.addEventListener('click', event => {
 
    // inputUsernameElement.value = '';
 
-})
+// })
