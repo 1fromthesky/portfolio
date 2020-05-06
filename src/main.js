@@ -7,3 +7,5 @@ import "./scripts/skills";
 import "./scripts/feedback-slide";
 import "./scripts/form";
 import "./scripts/parallax-mount";
+import "./scripts/parallax-buddha";
+import "./scripts/slider-projects";

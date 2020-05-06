@@ -1,4 +1,4 @@
-- 
+-
    var projects = [
       ['pro1.jpg', 'project-1', '#' ],
       ['pro2.jpg', 'project-2', '#' ],
@@ -6,26 +6,48 @@
       ['pro4.jpg', 'project-4', '#' ]
    ];
 
+-  var skillTag = ['HTML5','CSS3','JavaScript']
+
+-  var descCard = ['title project','about project','hiperkink']
+//- Vue
+//- Jquery
+//- GIT
+//- Terminal
+//- Gulp
+//- Webpack
+
 section.section.section_flex-column-center.perform-section
    .container
       h2.perform-section__title Мои работы
       .perform-section__content
-         .perform-section__slider
-            .slider-projects
-               .slider-projects__wrap
-                  .slider-projects__window
-                     ul.slider-projects__list
-                        each item in projects
-                           li.slider-projects__item.slider-projects__item_activ
-                              a.slider-projects__link(href=`${item[2]}`)
-                                 +image('content/'+item[0], 'slider-projects__img', item[1])
-                     .slider-projects__toggles
-                        a.slider-projects__toggles-btn.toggles__btn_prev
-                           +icon('arrow-down', 'toggles-svg-prev toggles-svg-prev_up')
-                        a.slider-projects__toggles-btn.toggles__btn_next
-                           +icon('arrow-down', 'toggles-svg-next toggles-svg-next_down')
+         .slider-projects
+            .slider-projects__wrap
+               .slider-projects__number 4
+               .slider-projects__window
+                  +image('content/pro4.jpg', 'slider-projects__img', 'link')
+                  ul.slider-projects__list
+                     each item in projects
+                        li.slider-projects__item.slider-projects__item_activ
+                           a.slider-projects__link(href=`${item[2]}`)
+                              +image('content/'+item[0], 'slider-projects__img', item[1])
+                  .slider-projects__toggles
+                     a.slider-projects__toggles-btn.toggles__btn_prev
+                        +icon('arrow-down', 'toggles-svg-prev toggles-svg-prev_up')
+                     a.slider-projects__toggles-btn.toggles__btn_next
+                        +icon('arrow-down', 'toggles-svg-next toggles-svg-next_down')
          .perform-section__description
             .description
+               ul.description__list
+                  each tag in skillTag
+                     li.description__item
+                        .description__tag
+                           p #{tag}
+               h3.description__title #{descCard[0]} Lorem ipsum dolorsitamet
+               .description__text
+                  p #{descCard[1]} Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, perspiciatis earum ea incidunt vel harum quisquam reiciendis nostrum mollitia tempore.
+               a.description__link(href=`${descCard[2]}`)
+                  .description__link-icon
+                  span Просмотреть сайт
    .arrow-section.perform-section__arrow
       svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
          polygon(points="1000,0 1000,100 0,100")

@@ -2,7 +2,7 @@
    top: 0;
    position: relative;
    overflow: hidden;
-   height: 1600px;
+   min-height: 1600px;
 }
 
 .parallax-mount__image {
@@ -42,26 +42,30 @@
    &:nth-child(4) {
       .parallax-mount__image {
          left: 0;
-         top: 600px;
+         top: 800px;
+         min-width: 1400px;
       }
    }
    &:nth-child(5) {
       .parallax-mount__image {
          left: 0;
-         top: 600px;
+         top: 700px;
+         min-width: 1400px;
       }
    }
    &:nth-child(6) {
       .parallax-mount__image {
          right: 0;
-         bottom: 0;
+         bottom: -128px;
+         min-width: 1400px;
+
       }
    }
    &:nth-child(7) {
       .parallax-mount__image {
          bottom: -450px;
-         // left: 0;
          right: 0;
+         min-width: 1400px;
       }
    }
 }
