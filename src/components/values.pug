@@ -23,22 +23,7 @@ section.section.section_flex-column-center.values-section
       .values-section__skills
          .values-section__image
             +image('content/bag.png', 'values-section__img', 'bag-skills')
-         ul.values
-            each item in skills
-               li.values__row
-                  h3.values__row-title #{item[0]}
-                  ul.values__list-row
-                     each skill in item[1]
-                        li.values__item-row
-                           .skill
-                              svg.skill__svg(viewBox='0 0 200 200' preserveAspectRatio="none")
-                                 defs.skill__defs
-                                    linearGradient(x1='0%' y1='50%' x2='100%' y2='100%')#skill__gradient
-                                       stop(offset='60%' stop-color="#5500f2").skill__fill_start
-                                       stop(offset='100%' stop-color="#ad00ed").skill__fill_stop
-                                 circle.skill__circle.skill__circle_under(cx='100' cy='100' r='67')
-                                 circle.skill__circle.skill__circle_over(cx='100' cy='100' r='67' stroke='url(#skill__gradient)' transform='rotate(-180 100 100)' style=`animation-delay: ${skill[1]};`)
-                              .skill__title #{skill[0]}
+         #values-component
    .arrow-section.values-section__arrow
       svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
          polygon(points="0,0 0,100 1000,100")

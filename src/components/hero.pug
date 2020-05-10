@@ -1,3 +1,6 @@
+-	var items = ["Главаная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+-	var icons = ["insta", "vk", "github"];
+
 section.section.hero
    .container
       header.header
@@ -15,6 +18,8 @@ section.section.hero
                   li.social__item
                      a.social__link(href='#')
                         +icon(item, "social__svg")
+      .header__burger
+         a.burger-btn
       .hero__content
          .user-data
             .user-data__desc

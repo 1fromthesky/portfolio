@@ -1,27 +1,30 @@
 .scroll-down-btn {
-
-   &__svg-container {
-      width: 30px;
-      height: 30px;
-
-      &::before {
-         content: 'Скролл';
-         font-weight: 700;
-         position: absolute;
-         top: 50%;
-         transform: translate(-120%, -50%);
-      }
-
-      &__svg {
-         width: 100%;
-         height: 100%;
-         display: block;
-      }
+   display: inline-block;
+   display: flex;
+   align-items: center;
+   font-size: 18px;
+   font-weight: 600;
+   text-decoration: none;
+ 
+   &:after {
+     content: '';
+     display: block;
+     background: svg-load('scroll.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
+     width: 28px;
+     height: 30px;
+     margin-left: 28px;
    }
-   
    &:hover {
-      fill: currentColor;
+      fill: $main;
       color: $main;
+
+      &::after {
+         background: svg-load('scroll.svg', fill=$main, width=100%, height=100%) center center no-repeat;
+         width: 28px;
+         height: 30px;
+         margin-left: 28px;
+      }
    }
 }
-// ! ещё варианты реализации?
+
+// !сложность с hover

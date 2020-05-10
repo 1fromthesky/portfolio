@@ -1,9 +1,9 @@
 -
    var projects = [
-      ['pro1.jpg', 'project-1', '#' ],
-      ['pro2.jpg', 'project-2', '#' ],
-      ['pro3.jpg', 'project-3', '#' ],
-      ['pro4.jpg', 'project-4', '#' ]
+      ['pro1.jpg', 'project-1', '#', ''],
+      ['pro2.jpg', 'project-2', '#', ''],
+      ['pro3.jpg', 'project-3', '#', ''],
+      ['pro4.jpg', 'project-4', '#', 'slider-projects__item_active'],
    ];
 
 -  var skillTag = ['HTML5','CSS3','JavaScript']
@@ -23,18 +23,19 @@ section.section.section_flex-column-center.perform-section
          .slider-projects
             .slider-projects__wrap
                .slider-projects__number 4
+                  //- p #{item[]}
                .slider-projects__window
                   +image('content/pro4.jpg', 'slider-projects__img', 'link')
-                  ul.slider-projects__list
-                     each item in projects
-                        li.slider-projects__item.slider-projects__item_activ
-                           a.slider-projects__link(href=`${item[2]}`)
-                              +image('content/'+item[0], 'slider-projects__img', item[1])
-                  .slider-projects__toggles
-                     a.slider-projects__toggles-btn.toggles__btn_prev
-                        +icon('arrow-down', 'toggles-svg-prev toggles-svg-prev_up')
-                     a.slider-projects__toggles-btn.toggles__btn_next
-                        +icon('arrow-down', 'toggles-svg-next toggles-svg-next_down')
+               ul.slider-projects__list
+                  each item in projects
+                     li.slider-projects__item(class=`${item[3]}`)
+                        a.slider-projects__link(href=`${item[2]}`)
+                           +image('content/'+item[0], 'slider-projects__img', item[1])
+               .slider-projects__toggles
+                  a.slider-projects__toggles-btn.toggles__btn_prev
+                     +icon('arrow-down', 'toggles-svg-prev toggles-svg-prev_up')
+                  a.slider-projects__toggles-btn.toggles__btn_next
+                     +icon('arrow-down', 'toggles-svg-next toggles-svg-next_down')
          .perform-section__description
             .description
                ul.description__list
