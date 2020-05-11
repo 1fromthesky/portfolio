@@ -1,0 +1,35 @@
+.burger-btn {
+	width: 24Px;
+	height: 4Px;
+	display: block;
+	background-color: $text-color;
+
+	&::after,
+	&::before {
+		content: '';
+		width: 24Px;
+		height: 4Px;
+		background-color: $text-color;
+		position: absolute;
+		left: 50%;
+	}
+	&:after {
+		top: 100%;
+		transform: translate(-50%, -100%);
+	}
+	&::before {
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+.burger-btn-wrap {
+	width: 24Px;
+	height: 20Px;
+	display: block;
+	position: relative;
+
+	&:hover {
+		transition: .4s;
+		transform: rotate(-180deg);
+	}
+}

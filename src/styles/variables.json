@@ -1,7 +1,8 @@
 {
   "main": "#5500f2",
+  "white": "#ffffff",
   "footer-color": "#1f232d",
-  "text-color": "#464d62",
+  "text-color": "#414c63",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",

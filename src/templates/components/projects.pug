@@ -3,6 +3,7 @@ script(type='text/x-template')#projects-container
 		display(
 			:currentProject='currentProject'
 			:project='project'
+			@slide='handleSlide'
 		)
 		info(
 			:currentProject='currentProject'
@@ -11,19 +12,21 @@ script(type='text/x-template')#projects-container
 script(type='text/x-template')#projects-display
 	.slider-projects
 		.slider-projects__wrap
-			.slider-projects__number 4
+			.slider-projects__number {{currentProject.id}}
 			.slider-projects__window
 				img.slider-projects__img(:src='currentProject.photo')
 			previews(
 				:project='project'
 				:currentProject='currentProject'
 			)
-			toggles
+			toggles(
+				@slide="$emit('slide', $event)"
+			)
 
 script(type='text/x-template')#projects-toggles
 	.slider-projects__toggles
-		a.slider-projects__toggles-btn.slider-projects__toggles-btn_prev
-		a.slider-projects__toggles-btn.slider-projects__toggles-btn_next
+		a(@click.prevent="$emit('slide', 'prev')").slider-projects__toggles-btn.slider-projects__toggles-btn_prev
+		a(@click.prevent="$emit('slide', 'next')").slider-projects__toggles-btn.slider-projects__toggles-btn_next
 
 script(type='text/x-template')#projects-previews
 	ul.slider-projects__list

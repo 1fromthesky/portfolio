@@ -3,6 +3,10 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
+
+   &__social {
+      display: flex;
+   }
 }
 
 .header__nav {
@@ -11,5 +15,14 @@
 
    @include tablets {
       display: none;
+   }
+}
+
+.header__burger {
+   height: 20Px;
+   display: none;
+   @include tablets {
+      display: block;
+      margin-left: 90px;
    }
 }

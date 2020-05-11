@@ -1,11 +1,10 @@
 script(type="text/x-template")#values
-	.values-section__container
-		ul.values
-			li.values__row(v-for='category in skills' :key='category.title')
-				h3.values__row-title {{category.title}}
-				values-list(
-					:category='category'
-				)
+	ul.values
+		li.values__row(v-for='category in skills' :key='category.title')
+			h3.values__row-title {{category.title}}
+			values-list(
+				:category='category'
+			)
 
 script(type="text/x-template")#values-list
 	ul.values__list-row

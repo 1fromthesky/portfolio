@@ -1,18 +1,15 @@
 .footer {
    background-color: $footer-color;
    padding: 100px 0;
-   color: rgba(#ffffff, .3);
-
+   color: $text-color;
    @include desktop {
       padding: 80px 0;
    }
    @include tablets {
-      padding: 60px 0;
+      padding: 65px 0;
    }
-
    &__container {
       display: flex;
-      width: 90%;
       
       @include phones {
          flex-direction: column;
@@ -20,26 +17,25 @@
    }
 }
 
-.footer__social {
-   margin-top: 18px;
 
+.footer__social {
+   margin-top: 25px;
+   @include tablets {
+      margin-top: 20px;
+   }
    .social__item {
       margin-right: 15px;
-
       &:last-child {
          margin-right: 0;
       }
    }
-
    .social__link {
-      @include circle(50Px, 1px, 'initial');
+      @include circle(50px, 2px, $text-color);
       position: relative;
-
       &:hover {
          border-color: $main;
       }
    }
-
    .social__svg {
       position: absolute;
       top: 50%;
@@ -48,6 +44,7 @@
    }
 }   
 
+
 .footer__column-left {
    display: flex;
    flex: 1;
@@ -55,33 +52,29 @@
    @include desktop {
       flex-direction: column;
       flex: 0.6;
-      margin-right: 30px;
    }
-
    .footer__copyright {
       font-size: 48px;
       line-height: 1;
       white-space: nowrap;
       font-weight: 600;
       margin-right: 10%;
-      margin-bottom: 15px;
+      @include desktop {
+         margin-right: 0;
+      }
    }
-
    .footer__data-name {
       font-weight: 600;
       text-transform: uppercase;
       line-height: 1.5;
-      color: #fff;
+      color: $white;
       font-size: 18px;
       display: flex;
       flex-direction: column;
-
       @include phones {
          flex-direction: row;
-         font-weight: 700;
       }
    }
-
    .footer__data-desc {
       margin-top: 15px;
       display: flex;
@@ -93,24 +86,32 @@
          font-weight: 700;
       }
    }
+   .footer__title {
+      @include desktop {
+         margin-top: 30px;
+      }
+   }
 }
+
 
 .footer__column-right {
    display: flex;
    flex-direction: column;
    flex: 2;
-
+   @include phones {
+      margin-top: 30px;
+   }
    .footer__nav {
       max-width: 800px;
-      color: #fff;
-
+      color: $white;
       .nav__list {
          justify-content: flex-start;
-
+         @include tablets {
+            line-height: 3;
+         }
          @include phones {
-            margin: 30px 0 0 -30px;
+            margin-left: -30px;
             width: 300px;
-            line-height: 2.5;
             justify-content: flex-start;
             // justify-content: center;
          }
@@ -118,38 +119,36 @@
       .nav__item {
          margin-right: 6%;
          @include phones {
-            margin: 0 30px;
+            margin: 0 40px;
          }
       }
    }
-
    .footer__row {
-      margin-top: 50px;
+      margin-top: 40px;
       display: flex;
       justify-content: space-between;
 
       @include tablets {
          flex-direction: column;
+         margin-top: 30px;
       }
    }
-
    .footer__column-inner-left {
       max-width: 315px;
-      margin: 0px 30px 0px 0px;
+      margin-right: 40px;
       @include tablets {
          min-width: 80%;
+         margin: 0;
       }
    }
-
    .footer__column-inner-right {
       max-width: 420px;
       @include tablets {
          margin-top: 50px;
       }
    }
-
    .footer__text-sig {
-      color: #fff;
+      color: $white;
       margin-top: 20px;
       font-style: italic;
    }

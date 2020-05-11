@@ -1,11 +1,22 @@
 .values {
+   max-width: 100%;
+   justify-content: center;
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
-   margin: 0 5%;
+   @include desktop {
+      align-items: center;
+   }
+   @include tablets {
+      align-items: center;
+   }
 
    .values__row {
-      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      @include desktop {
+         align-items: center;
+      }
    }
 
    .values__row-title { 
@@ -16,5 +27,8 @@
    .values__list-row {
       display: flex;
       flex-wrap: wrap;
+      @include tablets {
+         justify-content: center;
+      }
    }
 }

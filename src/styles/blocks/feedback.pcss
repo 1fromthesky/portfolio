@@ -4,17 +4,27 @@
    &__title-row {
       display: flex;
       align-items: center;
+      @include phones {
+         flex-direction: column;
+      }
    }
 
    &__title {
       font-size: 36px;
       font-weight: 700;
-      margin-right: 50px;
+      margin-right: 3%;
+      line-height: 1.4;
+      white-space: nowrap;
+      @include phones {
+         font-size: 24Px;
+      }
    }
 
    &__toggles {
       display: flex;
-
+      @include phones {
+         margin-top: 25px;
+      }
       &-btn {
          @include circle(50px, 1px, $text-color);
          display: block;
@@ -23,7 +33,7 @@
          position: relative;
 
          &:hover {
-            border-color: $text-color;
+            border-color: $main;
          }
 
          &:before {
@@ -36,7 +46,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: .3;
+            opacity: .6;
             transition: opacity .3s;
          }
          &_prev {

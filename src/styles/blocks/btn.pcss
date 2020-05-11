@@ -3,7 +3,8 @@
    font-size: 18px;
    font-weight: 600;
    text-transform: uppercase;
-   padding: 30px 124px;
+   padding: 30px 30px;
+   width: 350px;
    border-bottom-right-radius: 40px;
    border-bottom-left-radius: 5px;
    border-top-left-radius: 40px;
@@ -18,5 +19,9 @@
       background: -moz-linear-gradient( 70deg, rgb(187,0,255) 0%, rgb(138,0,255) 38%, rgb(89,0,255) 100%);      
       background: -webkit-linear-gradient( 70deg, rgb(187,0,255) 0%, rgb(138,0,255) 38%, rgb(89,0,255) 100%);      
       background: -ms-linear-gradient( 70deg, rgb(187,0,255) 0%, rgb(138,0,255) 38%, rgb(89,0,255) 100%);      
+   }
+
+   @include phones {
+      width: 260px;
    }
 }

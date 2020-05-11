@@ -66,8 +66,9 @@ html(lang="ru")
 												li.social__item
 													a.social__link(href='#')
 														+icon(item, "social__svg")
-								.header__burger
-									a.burger-btn
+										.header__burger
+											a.burger-btn-wrap
+												button.burger-btn
 								.hero__content
 									.user-data
 										.user-data__desc
@@ -146,9 +147,7 @@ html(lang="ru")
 									h2.feedback__title Что обо мне говорят
 									.feedback__toggles
 										a.feedback__toggles-btn.feedback__toggles-btn_prev
-											//- +icon('arrow-down', 'toggles-svg-prev')
 										a.feedback__toggles-btn.feedback__toggles-btn_next
-											//- +icon('arrow-down', 'toggles-svg-next')
 								.slider-feedback
 									ul.slider-feedback__window
 										each item in comment
@@ -167,25 +166,27 @@ html(lang="ru")
 						section.section.connect
 							.container
 								h2.connect__title Связаться со мной
-								form.form-connect(name='formConnect')
-									.form-connect__row
-										label.form-connect__label
-											input.form-connect__input(type='text', name='username', required="" autocomplete="off")
-											.form-connect__title Введите ваше имя
-											.form-connect__icon-wrap
-												+icon('user', 'form-connect__icon')
-										label.form-connect__label
-											input.form-connect__input(type='email', name='email', required="")
-											.form-connect__title Введите ваш email
-											.form-connect__icon-wrap
-												+icon('envelope', 'form-connect__icon')
-									.form-connect__row
-										label.form-connect__label
-											textarea.form-connect__input.form-connect__textarea(name='comments', required="")
-											.form-connect__title Сообщение к письму
-											.form-connect__icon-wrap
-												+icon('message', 'form-connect__icon')
-								button.btn(type='submit' name="btn-submit") Отправить
+								.connect__form
+									form.form-connect(name='formConnect')
+										.form-connect__row
+											label.form-connect__label
+												input.form-connect__input(type='text', name='username', required="" autocomplete="off")
+												.form-connect__title Введите ваше имя
+												.form-connect__icon-wrap
+													+icon('user', 'form-connect__icon')
+											label.form-connect__label
+												input.form-connect__input(type='email', name='email', required="")
+												.form-connect__title Введите ваш email
+												.form-connect__icon-wrap
+													+icon('envelope', 'form-connect__icon')
+										.form-connect__row
+											label.form-connect__label
+												textarea.form-connect__input.form-connect__textarea(name='comments', required="")
+												.form-connect__title Сообщение к письму
+												.form-connect__icon-wrap
+													+icon('message', 'form-connect__icon')
+										.form-connect__row.form-connect_btn
+											button.btn(type='submit' name="btn-submit") Отправить
 			footer.footer
 				.container.footer__container
 					.footer__column-left

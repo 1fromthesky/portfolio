@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 const toggles = {
-   template: '#projects-toggles'
+   template: '#projects-toggles',
 }
 const previews = {
    template: '#projects-previews',
@@ -28,7 +28,7 @@ new Vue({
    data() {
       return {
          project: [],
-         currentIndex: 2
+         currentIndex: 0
       }
    },
    computed: {
@@ -36,7 +36,28 @@ new Vue({
          return this.project[this.currentIndex];
       }
    },
+   watch: {
+      currentIndex(value) {
+         const projectsFromData = this.project.length - 1;
+         if (value > projectsFromData) {
+            this.currentIndex = 0
+         };
+         if (value < 0) {
+            this.currentIndex = projectsFromData;
+         };
+      },
+   },
    methods: {
+      handleSlide(direction) {
+         switch(direction) {
+            case 'next':
+               this.currentIndex++;
+               break;
+            case 'prev':
+               this.currentIndex--;
+               break;
+         }
+      },
       makeArrayRequire(array) {
          return array.map((item) => {
             const requirePic = require(`../images/content/${item.photo}`);

@@ -57,12 +57,14 @@ const sliderItem = document.querySelectorAll('.feedback-review');
 
 const minRight = 0;
 const maxRight = sliderItem.length * 50 - 100;
+const maxRightPhones = sliderItem.length * 100;
 const step = 100;
 let currentRight = 0;
+let currentScreenWidth = document.documentElement.clientWidth;
 
 nextToggle.addEventListener('click', function(event) {
    event.preventDefault();
-   
+
    if (currentRight < maxRight) {
       currentRight += step;
       sliderMove.style.right = currentRight + '%';

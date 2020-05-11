@@ -4,8 +4,11 @@
       position: relative;
       width: 100%;
       padding-bottom: 50%;
-      min-width: 650Px;
-      min-height: 400Px;
+      min-width: 600Px;
+      min-height: 350Px;
+      @include phones {
+         min-width: 100%;
+      }
    }
    
    &__window {
@@ -17,6 +20,9 @@
       right: 0;
       bottom: 0;
       overflow: hidden;
+      @include phones {
+         margin-right: 0;
+      }
    }
    
    &__number {
@@ -29,6 +35,9 @@
       line-height: 0;
       letter-spacing: 0;
       color: #e6e6e6;
+      @include phones {
+         display: none;
+      }
    }
 
    &__list {
@@ -41,6 +50,9 @@
       bottom: 0px;
       z-index: 10;
       max-height: 400px;
+      @include phones {
+         margin-right: 0;
+      }
    }
 
    &__item {
@@ -79,6 +91,7 @@
       top: 0;
       left: 0;
       object-fit: cover;
+      object-position: left top;
    }
 
    &__toggles {
@@ -87,6 +100,9 @@
       right: 0;
       margin-right: 150px;
       top: 100%;
+      @include phones {
+         margin-right: 0;
+      }
 
       &-btn {
          width: 50px;

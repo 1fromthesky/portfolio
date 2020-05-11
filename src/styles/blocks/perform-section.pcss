@@ -2,20 +2,31 @@
    min-height: 950px;
    position: relative;
 
+   @include tablets {
+      .container {
+         width: 100%;
+      }
+   }
+   
    &__content {
       display: flex;
-      
-      @include tablets {
+      @include desktop {
          flex-direction: column;
-         max-width: 650px;
          align-items: center;
       }
-      // justify-content: center;
    }
 
    &__description {
       width: 350px;
       height: auto;
+      @include desktop {
+         min-width: 440px;
+         text-align: center;
+         margin-top: 90px;
+      }
+      @include phones {
+         min-width: auto;
+      }
    }
 
    &__title {

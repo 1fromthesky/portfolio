@@ -92,7 +92,11 @@ address {
 }
 
 .section {
-  min-height: 650px;
+  min-height: 650Px;
+  @include tablets {
+    min-height: 550Px;
+  }
+
 
   &_flex-column-center {
     display: flex;
@@ -108,6 +112,10 @@ address {
   max-width: 1480px;
   margin: 0 auto;
   position: relative;
+
+  @include phones {
+    width: 85%;
+  }
 
   &_smoll {
      max-width: 980px;
