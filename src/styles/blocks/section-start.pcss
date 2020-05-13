@@ -1,3 +1,10 @@
 .section-start {
-   min-height: 1600px;
-}
+   position: relative;
+ 
+   @media screen and (min-width: 1960px) {
+     background: url('~images/bg/hero_wide.jpg') center top / cover no-repeat;
+   }
+   @include tablets {
+     background: url('~images/bg/hero.jpg') 15% top / cover no-repeat;
+   }
+ }

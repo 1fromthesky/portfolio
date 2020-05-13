@@ -5,7 +5,7 @@ const toggles = {
 }
 const previews = {
    template: '#projects-previews',
-   props: ['project']
+   props: ['project', 'currentProject'],
 }
 const display = {
    template: '#projects-display',
@@ -13,12 +13,18 @@ const display = {
    props: ['currentProject', 'project'],
 }
 const tags = {
-   template: '#projects-tags'
+   template: '#projects-tags',
+   props: ['tags']
 }
 const info = {
    template: '#projects-info',
    components: {tags},
-   props: ['currentProject']
+   props: ['currentProject'],
+   computed: {
+      tagsArr() {
+         return this.currentProject.skills.split(',');
+      }
+   }
 }
 
 new Vue({
@@ -38,6 +44,11 @@ new Vue({
    },
    watch: {
       currentIndex(value) {
+         this.makeInfiniteLoop(value)
+      },
+   },
+   methods: {
+      makeInfiniteLoop(value) {
          const projectsFromData = this.project.length - 1;
          if (value > projectsFromData) {
             this.currentIndex = 0
@@ -46,8 +57,6 @@ new Vue({
             this.currentIndex = projectsFromData;
          };
       },
-   },
-   methods: {
       handleSlide(direction) {
          switch(direction) {
             case 'next':

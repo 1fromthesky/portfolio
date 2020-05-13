@@ -30,14 +30,21 @@ script(type='text/x-template')#projects-toggles
 
 script(type='text/x-template')#projects-previews
 	ul.slider-projects__list
-		li.slider-projects__item(v-for='one in project' :key='project.id')
+		li.slider-projects__item(
+			v-for='one in project' 
+			:key='one.id'
+			:class="{'slider-projects__item_active': currentProject.id === one.id}"
+			@click=''
+		)
 			a.slider-projects__link
 				img.slider-projects__img(:src='one.photo')
 
 script(type='text/x-template')#projects-info
 	.perform-section__description
 		.description
-			tags
+			tags(
+				:tags="tagsArr"
+			)
 			h3.description__title {{currentProject.title}}
 			.description__text
 				p {{currentProject.desc}}
@@ -47,6 +54,9 @@ script(type='text/x-template')#projects-info
 
 script(type='text/x-template')#projects-tags
 	ul.description__list
-		li.description__item
+		li.description__item(
+			v-for="tag in tags"
+			:key="tag"
+		)
 			.description__tag
-				.tag
+				.tag {{tag}}

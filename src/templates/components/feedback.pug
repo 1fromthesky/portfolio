@@ -1,0 +1,32 @@
+script(type="text/x-template")#feedback-container
+	.feedback__container
+		.feedback__title-row
+			h2.feedback__title Что обо мне говорят
+			.feedback__toggles
+				a(@click="previous").feedback__toggles-btn.feedback__toggles-btn_prev
+				a(@click="next").feedback__toggles-btn.feedback__toggles-btn_next
+		window(
+			:dataList="feedbackList"
+		)
+
+script(type="text/x-template")#feedback-window
+	flickity(ref="flickity" :options="flickityOptions").slider-feedback
+		ul.slider-feedback__window
+			li(v-for="card in dataList" :key="card.id").feedback-review
+				massege(
+					:cardList="card"
+				)
+
+script(type="text/x-template")#feedback-massege
+	.feedback-review__content
+		.feedback-review__item-quote
+			+icon('quote', 'feedback-review__item-quote-svg')
+		.feedback-review__item-content
+			p {{cardList.massege}}
+			.feedback-review__item-content-card
+				.feedback-review__item-content-logo
+					.avatar
+						img(:src="cardList.avatar").avatar__img
+				.feedback-review__item-content-name
+					.feedback-review__name(v-text="cardList.name")
+					.feedback-review__rank(v-text="cardList.rang")

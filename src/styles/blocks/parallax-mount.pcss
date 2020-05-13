@@ -1,8 +1,17 @@
 .parallax-mount {
    top: 0;
-   position: relative;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   position: absolute;
    overflow: hidden;
-   min-height: 1600px;
+   // min-height: 1600px;
+   @media screen and (min-width: 1960px) {
+      display: none;
+   }
+   @include tablets {
+      display: none;
+   }
 }
 
 .parallax-mount__image {
@@ -34,7 +43,7 @@
    }
    &:nth-child(3) {
       .parallax-mount__image {
-         top: 330px;
+         top: 360px;
          left: 50%;
          margin-left: 12%;
       }
@@ -42,14 +51,19 @@
    &:nth-child(4) {
       .parallax-mount__image {
          left: 0;
-         top: 800px;
-         min-width: 1400px;
+         top: 700px;
+         width: 100%;
+         height: 100%;
+         // min-width: 1400px;
+         object-fit: cover;
+         opacity: .7;
+         // display: none;
       }
    }
    &:nth-child(5) {
       .parallax-mount__image {
          left: 0;
-         top: 700px;
+         top: 800px;
          min-width: 1400px;
       }
    }
@@ -58,7 +72,6 @@
          right: 0;
          bottom: -128px;
          min-width: 1400px;
-
       }
    }
    &:nth-child(7) {
@@ -66,6 +79,109 @@
          bottom: -450px;
          right: 0;
          min-width: 1400px;
+         // display: none;
       }
    }
 }
+// ============
+// .parallax {
+//    position: absoluter;
+//    top: 0;
+//    bottom: 0;
+//    left: 0;
+//    right: 0;
+
+   // @media screen and (max-width: 2560px) {
+   //    display: none;
+   // }
+   // @include tablets {
+   //    display: none;
+   // }
+ 
+ 
+// .parallax__layer {
+//    position: absolute;
+//    top: 0;
+//    left: 0;
+//    right: 0;
+//    bottom: 0;
+//    display: none;
+//    will-change: transform;
+
+//    &:nth-child(1) {
+//       display: block;
+//       .parallax__image {
+//          object-fit: cover;
+//          width: 100%;
+//          height: 100%;
+//       }
+//    }
+
+//    &:nth-child(2) {
+//    //   transform: translateZ(-50px) scale(1.5);
+//      display: block;
+//      .parallax__image {
+//        top: 360px;
+//       //  right: 0;
+//        width: 100%;
+//        object-fit: cover;
+//      }
+//    }
+
+//    &:nth-child(3) {
+//      // transform: translateZ(-100px) scale(2);
+//      display: block;
+//      .parallax__image {
+//        left: 50%;
+//        top: 518px;
+//        transform: translateX(367px);
+//      }
+//    }
+//    &:nth-child(4) {
+//      // transform: translateZ(-150px) scale(2.5);
+//      display: block;
+//      .parallax__image {
+//        left: 0;
+//        // width: 100%;
+//        top: 610px;
+//      }
+//    }
+//    &:nth-child(5) {
+//      // transform: translateZ(-200px) scale(3);
+//      display: block;
+//      .parallax__image {
+//        left: 0;
+//        top: 610px;
+//      }
+//    }
+//    &:nth-child(6) {
+//      display: block;
+//      // transform: translateZ(-250px) scale(3.5) ;
+//      .parallax__image {
+//        right: 0;
+//        // top: 416px;
+//        bottom: 0;
+//      }
+//    }
+//    &:nth-child(7) {
+//      display: block;
+//      // transform: translateZ(-300px) scale(4);
+//      .parallax__image {
+//        left: 0;
+//        width: 100%;
+//        bottom: 0px;
+//      }
+//    }
+//  }
+ 
+//    .parallax__image {
+//       max-width: initial;
+//       max-height: initial;
+//       position: absolute;
+//    }
+// }
+// - for (var i = 1; i <= 7; i++)
+// 							.parallax__layer
+// 								picture
+// 									source(srcset=require(`images/parallax/${i}_2560.${i === 1 ? 'jpg' : 'png'}`) media="(min-width: 1960px)").parallax__image
+// 									img(srcset=require(`images/parallax/${i}.${i === 1 ? 'jpg' : 'png'}`)).parallax__image
