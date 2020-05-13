@@ -6,16 +6,10 @@ const massege = {
 	props: ["cardList"]
 }
 
-const window = {
-	template: '#feedback-window',
-	components: {massege},
-	props: ["dataList"]
-}
-
 new Vue({
 	el: "#feedback-component",
 	template: "#feedback-container",
-	components: { window , Flickity },
+	components: { massege , Flickity },
 	data() {
 		return {
 			feedbackList: [],
@@ -33,9 +27,11 @@ new Vue({
 	methods: {
 		next() {
 		  this.$refs.flickity.next();
+		  this.checkActiv()
 		},
 		previous() {
 		  this.$refs.flickity.previous();
+		  this.checkActiv()
 		},
 		makeRequireImg(array) {
 			return array.map(item => {
@@ -43,6 +39,16 @@ new Vue({
 				item.avatar = requireImg;
 				return item;
 			})
+		},
+		checkActiv() {
+			if (this.$refs.flickity.selectedIndex() == 0) {
+				this.$el.querySelector('.feedback__toggles-btn_prev').disabled = true;
+			} else if (this.$refs.flickity.selectedIndex() == this.$refs.flickity.slides().length - 1) {
+				this.$el.querySelector('.feedback__toggles-btn_next').disabled = true;
+			} else {
+				this.$el.querySelector('.feedback__toggles-btn_prev').disabled = false;
+				this.$el.querySelector('.feedback__toggles-btn_next').disabled = false;
+			}
 		}
 	},
 	created() {

@@ -1,21 +1,16 @@
 script(type="text/x-template")#feedback-container
-	.feedback__container
+	.feedback__container(@click="checkActiv" @touchend="checkActiv")
 		.feedback__title-row
 			h2.feedback__title Что обо мне говорят
 			.feedback__toggles
-				a(@click="previous").feedback__toggles-btn.feedback__toggles-btn_prev
-				a(@click="next").feedback__toggles-btn.feedback__toggles-btn_next
-		window(
-			:dataList="feedbackList"
-		)
-
-script(type="text/x-template")#feedback-window
-	flickity(ref="flickity" :options="flickityOptions").slider-feedback
-		ul.slider-feedback__window
-			li(v-for="card in dataList" :key="card.id").feedback-review
-				massege(
-					:cardList="card"
-				)
+				button(@click="previous" :disabled="true").feedback__toggles-btn.feedback__toggles-btn_prev
+				button(@click="next" :disabled="false").feedback__toggles-btn.feedback__toggles-btn_next
+		.slider-feedback
+			flickity(ref="flickity" :options="flickityOptions").slider-feedback__window
+				.feedback-review(v-for="card in feedbackList" :key="card.id")
+					massege(
+						:cardList="card"
+					)
 
 script(type="text/x-template")#feedback-massege
 	.feedback-review__content

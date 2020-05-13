@@ -31,33 +31,35 @@
          margin: 0 10px;
          background-color: initial;
          position: relative;
+         transition: .3s;
+
+         &:disabled {
+            border-color: #aaa;
+         }
 
          &:hover {
-            border-color: $main;
+            border-color: $text-color;
+            &:before {
+               opacity: 1;
+            }
          }
 
          &:before {
             content: "";
             display: block;
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 13px;
             background: svg-load('arrow-down.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: .6;
+            opacity: .7;
             transition: opacity .3s;
          }
          &_prev {
             &:before {
                transform: translate(-50%, -50%) rotate(-180deg);
-            }
-         }
-
-         &:hover {
-            &:before {
-               opacity: 1;
             }
          }
       }
