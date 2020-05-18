@@ -1,35 +1,41 @@
 .burger-btn {
-	width: 24Px;
-	height: 4Px;
-	display: block;
-	background-color: $text-color;
+   display: none;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 20Px;
+   width: 24Px;
+   transition: .1s;
+   
+   @include tablets {
+      display: flex;
+   }
 
-	&::after,
-	&::before {
-		content: '';
-		width: 24Px;
+   &:hover {
+      transition: .3s;
+      transform: rotate(180deg);
+   }
+   
+   span {
+      width: 24Px;
 		height: 4Px;
 		background-color: $text-color;
-		position: absolute;
-		left: 50%;
-	}
-	&:after {
-		top: 100%;
-		transform: translate(-50%, -100%);
-	}
-	&::before {
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
-}
-.burger-btn-wrap {
-	width: 24Px;
-	height: 20Px;
-	display: block;
-	position: relative;
+   }
+   
+   &_open {
+      span {
+         position: absolute;
+         top: 50%;
+         left: 50%;
 
-	&:hover {
-		transition: .4s;
-		transform: rotate(-180deg);
-	}
+         &:first-of-type {
+            transform: translate(-50%, -50%) rotate(45deg);
+         }
+         &:nth-child(2) {
+            display: none;
+         }
+         &:last-of-type {
+            transform: translate(-50%, -50%) rotate(-45deg);
+         }
+      }      
+   }   
 }

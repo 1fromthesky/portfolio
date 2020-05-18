@@ -7,6 +7,12 @@
       margin-bottom: 10px;
       display: flex;
       flex-direction: column;
+      @include tablets {
+         font-size: 16Px;
+      }
+      @include phones {
+         font-size: 14Px;
+      }
    }
 
    &__name {
@@ -15,5 +21,11 @@
       line-height: 0.8;
       display: flex;
       flex-direction: column;
+      @include tablets {
+         font-size: 48Px;
+      }
+      @include phones {
+         font-size: 36Px;
+      }
    }
 }

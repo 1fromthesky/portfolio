@@ -9,7 +9,7 @@
    }
 
    &__item {
-      margin-right: 4%;
+      margin-right: 3%;
       
       &:last-child {
          margin-right: 0;
@@ -20,7 +20,19 @@
       white-space: nowrap;
 
       &:hover {
-         text-shadow: 0 0 .65px, 0 0 .65px;
+         color: $main;
+      }
+   }
+   .nav_aside {
+      flex-direction: column;
+      align-items: start;
+      font-weight: 700;
+      @include phones {
+         font-size: 18Px;
+      }
+
+      .nav__item {
+         margin: 20px 0 0 0;
       }
    }
 }

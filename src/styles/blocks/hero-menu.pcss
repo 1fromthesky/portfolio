@@ -1,0 +1,29 @@
+.hero-menu {
+	position: relative;
+	// min-width: 325Px;
+
+	overflow: hidden;
+	transition: right .5s ease-in-out;
+
+	@include tablets {
+		position: fixed;
+		right: -320Px;
+		top: 0;
+		bottom: 0;
+		width: 0;
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		z-index: 1000;
+	}
+
+	&__container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__social {
+		margin-top: 55px;
+	}
+}

@@ -1,25 +1,9 @@
 -	var items = ["Главаная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
 -	var icons = ["insta", "vk", "github"];
 
--
-
 - 	var skillTag = ['HTML5','CSS3','JavaScript']
 
-- 	var descCard = ['title project','about project','hiperkink']
-//- Vue
-//- Jquery
-//- GIT
-//- Terminal
-//- Gulp
-//- Webpack
 
--
-	var comment = [
-		['user.jpg', 'Max', 'backend', 'massege 1'],
-		['user.jpg', 'Vasia', 'frontend', 'massege 2'],
-		['user.jpg', 'Masha', 'frontend', 'massege 3'],
-		['user.jpg', 'Vova', 'backend', 'massege 4'],
-	];
 include ./mixins.pug
 
 <!DOCTYPE html>
@@ -65,9 +49,25 @@ html(lang="ru")
 											li.social__item
 												a.social__link(href='#')
 													+icon(item, "social__svg")
-									.header__burger
-										a.burger-btn-wrap
-											button.burger-btn
+								.header__burger
+									//- .burger-btn_open
+									button(type="button").burger-btn
+										- for (var i = 1; i <= 3; i++)
+											span
+							aside.hero-menu
+								.hero-menu__container
+									.hero-menu__nav
+										nav.nav
+											ul.nav__list.nav_aside
+												each item in items
+													li.nav__item
+														a.nav__link(href='#') #{item}
+									.hero-menu__social
+										ul.social
+											each item in icons
+												li.social__item
+													a.social__link(href='#')
+														+icon(item, "social__svg")
 							.hero__content
 								.user-data
 									.user-data__desc
@@ -76,7 +76,7 @@ html(lang="ru")
 									.user-data__name 
 										span Name 
 										span Surnamt
-							a(href='#').hero__scroll-btn.scroll-down-btn Скролл
+							button(href='#').hero__scroll-btn.scroll-down-btn Скролл
 					section.section.resume-section
 						.container.container_smoll
 							.resume
@@ -125,7 +125,6 @@ html(lang="ru")
 							polygon(points="1000,0 1000,100 0,100")
 						svg(viewBox="0 0 1000 100" preserveAspectRatio="none").arrow-section__item.arrow
 							polygon(points="0,0 0,100 1000,100")
-
 				.section-finish
 					.parallax-buddha
 						.parallax__layer
