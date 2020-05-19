@@ -1,5 +1,34 @@
 <template lang="pug">
 	.wrapper
+		section.login
+			.login__container
+				.login__content
+					.login__title Авторизация
+					form.login__form(name="login-form")
+						label.login__label
+							input(type="text" name="login-login" required="").login__input
+							.login__form-title Логин
+							.login__icon-wrap
+								.login__icon
+						label.login__label
+							input(type="password" name="login-password" required="").login__input
+							.login__form-title Пароль
+							.login__icon-wrap
+								.login__icon.login__icon_key
+						.login__btn-wrap
+							button(type="button" name="login-btn-login").login__btn-login Отправить
+		.modal_sent.modal
+			.modal__text Сообщение отправлено
+			button(type="button").modal__icon
+				.modal__cross
+		.modal_overloaded.modal
+			.modal__text Сервер перегнужен
+			button(type="button").modal__icon
+				.modal__cross
+		.modal_error.modal
+			.modal__text Сообщение не отправлено
+			button(type="button").modal__icon
+				.modal__cross
 		header.header
 			.container-admin
 				.header__content
@@ -23,25 +52,45 @@
 						.about__btn-wrap
 							.btn-plus 
 				.about__content
-					.group(v-for="group in ['Frontend','Backend']")
-						.group__title
-							input(placeholder="Название новой группы" :value="group" name="group-name").group__input.group__name-group
-							.group__btns-wrap
-								button(type="button" name="group-edit-btn").btn-true
-								button(type="button" name="group-delete-btn").btn-false
-						.group__skills
-							.skill(v-for="skill in [['Git', '30%'],['JavaScript', '20%'],['HTML5', '60%']]")
-								input(:disabled="false" :value="skill[0]" name="prof-name").skill__prof.skill__input
-								input(:disabled="false" :value="skill[1]" name="percent").skill__perc.skill__input
+					.about__content-list
+						.group.group_new
+							.group__title
+								input(placeholder="Название новой группы" :value="''" name="group-name").group__input.group__name-group
 								.group__btns-wrap
-									button(type="button" name="group-edit-btn").edit-btn
-									button(type="button" name="group-delete-btn").delete-btn
-						.group__skill-add
-							input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
-							input(placeholder="100 %" name="add-percent").group__skill-percent.group__input
-							button(type="button" name="group-add").group__btn
-								.group__btn-wrap
-									.btn-plus
+									button(type="button" name="group-edit-btn").btn-true
+									button(type="button" name="group-delete-btn").btn-false
+							.group__skills
+								.skill
+									input(:disabled="false" :value="''" name="prof-name").skill__prof.skill__input
+									input(:disabled="false" :value="''" name="percent" type="number" min="0" max="100").skill__perc.skill__input
+									.group__btns-wrap
+										button(type="button" name="group-edit-btn").edit-btn
+										button(type="button" name="group-delete-btn").delete-btn
+							.group__skill-add
+								input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
+								input(placeholder="100 %" name="add-percent" type="number" min="0" max="100").group__skill-percent.group__input
+								button(type="button" name="group-add").group__btn
+									.group__btn-wrap
+										.btn-plus
+						.group(v-for="group in ['Frontend','Backend']")
+							.group__title
+								input(placeholder="Название новой группы" :value="group" name="group-name").group__input.group__name-group
+								.group__btns-wrap
+									button(type="button" name="group-edit-btn").btn-true
+									button(type="button" name="group-delete-btn").btn-false
+							.group__skills
+								.skill(v-for="skill in [['Git', '30'],['JavaScript', '20'],['HTML5', '60']]")
+									input(:disabled="false" :value="skill[0]" name="prof-name").skill__prof.skill__input
+									input(:disabled="false" :value="skill[1]" name="percent" type="number" min="0" max="100" placeholder="%").skill__perc.skill__input
+									.group__btns-wrap
+										button(type="button" name="group-edit-btn").edit-btn
+										button(type="button" name="group-delete-btn").delete-btn
+							.group__skill-add
+								input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
+								input(placeholder="100 %" name="add-percent" type="number" min="0" max="100").group__skill-percent.group__input
+								button(type="button" name="group-add").group__btn
+									.group__btn-wrap
+										.btn-plus
 		section.section.projects
 			.container-admin.container-admin_column
 				.section__title-wrap
@@ -77,25 +126,27 @@
 								button(type="reset").btn-toggle-cancel Отмена
 								button(type="button" name="project-add").load-form__btn.btn-toggle Сохранить
 				.projects__work
-					button(type="button" name="project-add").work-btn
-						.work-btn__circle
-					.work(v-for="work in ['1', '2']")
-						.work__image
-							img(src="../images/content/pro1.jpg").work__pic
-							ul.work__tags
-								li.work__tag(v-for="tag in ['HTML', 'CSS', 'JavaScript']")
-									p {{tag}}
-						.work__container
-							.work__content
-								h4.work__title Сайт школы образования
-								.work__text
-									p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-								a.work__link http://loftschool.ru
-							.work__btn-wrap
-								button.work__btn Править
-									.edit-btn
-								button.work__btn Удалить
-									.btn-false
+					.projects__work-list
+						button.create-btn(type="button" name="project-add")
+							.create-btn__circle
+							.create-btn__text Добавить работу
+						.work(v-for="work in ['1', '2','3']")
+							.work__image
+								img(src="../images/content/pro1.jpg").work__pic
+								ul.work__tags
+									li.work__tag(v-for="tag in ['HTML', 'CSS', 'JavaScript']")
+										p {{tag}}
+							.work__container
+								.work__content
+									h4.work__title Сайт школы образования
+									.work__text
+										p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+									a.work__link http://loftschool.ru
+								.work__btn-wrap
+									button.work__btn Править
+										.edit-btn
+									button.work__btn Удалить
+										.btn-false
 		section.section.reviews
 			.container-admin.container-admin_column
 				.section__title-wrap
@@ -122,9 +173,30 @@
 									.recall__title Отзыв
 									textarea(name="author-desc").recall__input.recall__textarea
 							.recall__row
-								//- .load-form__btn-wrap
-								//- 	button(type="reset").btn-toggle-cancel Отмена
-								//- 	button(type="button" name="project-add").load-form__btn.btn-toggle Сохранить
+								.recall__btn-container
+									button(type="reset").btn-toggle-cancel Отмена
+									button(type="button" name="author-add").load-form__btn.btn-toggle Сохранить
+				.reviews__comments
+					.reviews__comments-list
+						button.create-btn(type="button" name="comment-add")
+							.create-btn__circle
+							.create-btn__text Добавить отзыв
+						.comment(v-for="work in ['1', '2','3']")
+							.comment__head
+								.comment__avatar
+									.avatar
+										img(src="../images/content/user.jpg").avatar__img
+								.comment__user-container 
+									.comment__user User Name
+									.comment__user-rank frontend
+							.comment__content
+								p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+							.comment__btn-wrap
+									button.work__btn Править
+										.edit-btn
+									button.work__btn Удалить
+										.btn-false
+								
 </template>
 
 
@@ -174,7 +246,214 @@ body {
 		margin-left: 20px;
 	} 
 }
+/* -----------------------------login----------------------------------- */
 
+.login {
+	/* z-index: 1000; */
+	/* position: fixed; */
+	overflow-y: hidden;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	background: url('../images/bg/hero.jpg') center center / cover no-repeat;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		background-color: rgba($text-color, .7)
+	}
+	&__container {
+		width: 560px;
+		height: 515px;
+		background-color: #fff;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@include tablets {
+			width: 528px;
+			height: 528px;
+		}
+		@include phones {
+			width: 100%;
+			height: 100vh;
+			padding: 30px;
+		}
+	}
+	&__content {
+		width: 430px;
+		height: 415px;
+		@include phones {
+			width: 100%;
+		}
+	}
+	&__title {
+		font-size: 36px;
+		font-weight: 700;
+		text-align: center;
+	}
+	&__form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__label {
+		margin-top: 30px;
+		width: 100%;
+      position: relative;
+	}
+	&__form-title {
+		position: absolute;
+      top: 0;
+      padding: 17px 0px 21px;
+      font-weight: 600;
+      color: rgba($text-color, .5);
+      margin-left: 45px;
+      font-size: 18px;
+      transition: .3s;
+	}
+	&__input {
+		position: relative;
+      display: block;
+      border: none;
+      outline: none;
+      width: 100%;
+      border-bottom: 2px solid rgba($text-color, .7);
+      padding: 17px 45px 21px;
+      background: transparent;
+      color: inherit;
+      font-weight: 700;
+      line-height: inherit;
+      font-size: 18px;
+
+      &:focus ~ .login__form-title, 
+      &:valid ~ .login__form-title {
+         top: -40px;
+         font-size: 16px;
+         color: $main;
+      }
+      &:focus:invalid ~ .login__form-title {
+         top: -40px;
+         color: $text-color
+      }
+      &:focus {
+         border-bottom-color: $main;
+      }
+      &:focus ~ .login__icon-wrap .login__icon, 
+      &:valid ~ .login__icon-wrap .login__icon {
+   	   background: svg-load('user.svg', fill=$main, width=100%, height=100%) center center no-repeat;
+      }
+      &:focus ~ .login__icon-wrap .login__icon_key, 
+      &:valid ~ .login__icon-wrap .login__icon_key {
+   	   background: svg-load('key.svg', fill=$main, width=100%, height=100%) center center no-repeat;
+      }
+      &:focus:invalid ~ .login__icon-wrap .login__icon {
+         background: svg-load('user.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
+      }
+      &:focus:invalid ~ .login__icon-wrap .login__icon_key {
+         background: svg-load('key.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
+      }
+	}
+	&__icon-wrap {
+		position: absolute;
+      bottom: 100%;
+		.login__icon {
+			background: svg-load('user.svg', fill=rgba($text-color, .5), width=100%, height=100%) center center no-repeat;
+      	display: block;
+      	position: absolute;
+      	top: 50%;
+      	transform: translateY(50%);
+      	width: 30px;
+      	height: 30px;
+      	transition: .3s;
+			&_key {
+				background: svg-load('key.svg', fill=rgba($text-color, .5), width=100%, height=100%) center center no-repeat;
+			}
+		}
+	}
+	&__btn-wrap {
+		text-align: center;
+		margin-top: 50px;
+	}
+	&__btn-login {
+		color: #fff;
+   	font-size: 18px;
+   	font-weight: 600;
+   	text-transform: uppercase;
+   	padding: 30px 30px;
+   	width: 350px;
+   	border-bottom-right-radius: 40px;
+   	border-bottom-left-radius: 5px;
+   	border-top-left-radius: 40px;
+   	border-top-right-radius: 5px;
+   	background: linear-gradient( 50deg, rgb(173,0,237) 0%, rgb(129,0,240) 38%, rgb(85,0,242) 100%);
+   	background: -moz-linear-gradient( 50deg, rgb(173,0,237) 0%, rgb(129,0,240) 38%, rgb(85,0,242) 100%);   
+   	background: -webkit-linear-gradient( 50deg, rgb(173,0,237) 0%, rgb(129,0,240) 38%, rgb(85,0,242) 100%);
+   	background: -ms-linear-gradient( 50deg, rgb(173,0,237) 0%, rgb(129,0,240) 38%, rgb(85,0,242) 100%);
+		@include phones {
+			padding: 20px 20px;
+			width: 250px;
+		}
+		&:focus {
+			opacity: .8;
+		}
+		&:hover {
+			background: linear-gradient( 70deg, rgb(187,0,255) 0%, rgb(138,0,255) 38%, rgb(89,0,255) 100%);
+			background: -moz-linear-gradient( 70deg, rgb(187,0,255) 0%, rgb(138,0,255) 38%, rgb(89,0,255) 100%);      
+			background: -webkit-linear-gradient( 70deg, rgb(187,0,255) 0%, rgb(138,0,255) 38%, rgb(89,0,255) 100%);      
+			background: -ms-linear-gradient( 70deg, rgb(187,0,255) 0%, rgb(138,0,255) 38%, rgb(89,0,255) 100%);      
+		}
+	}
+}
+/* -------------------------------modal------------------------------------ */
+
+.modal {
+	z-index: 1200;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 30px;
+	bottom: 0;
+	width: 400px;
+	
+	&_sent {
+		background-color: #4bb133;
+		left: 100px;
+	}
+	&_overloaded {
+		background-color: #b18333;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	&_error {
+		background-color: #b13333;
+		right: 100px;
+	}
+	&__text {
+		color: #fff;
+		font-size: 18px;
+		font-weight: 600;
+	} 
+	&__icon {
+		position: relative;
+	}
+	&__cross {
+		width: 22px;
+		height: 22px;
+		display: block;
+		background: svg-load('cross.svg', fill=#fff, width=100%, height=100%) center center no-repeat;
+	}
+}
 /* -------------------------------header---------------------------------- */
 
 .header {
@@ -338,13 +617,11 @@ body {
 	}
 
 	&__content {
-		display: flex;
-		justify-content: space-between;
-		margin-left: -30px;
-		@include tablets {
-			flex-direction: column;
-			align-items: center;
-			margin-left: 0 auto;
+		width: 100%;
+		&-list {
+			margin-left: -30px;
+			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 }
@@ -356,12 +633,25 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 20Px;
-	max-width: 530Px;
+	width: calc(100% / 2 - 30px);
+	min-width: 300Px;
 	min-height: 390Px;
 	background-color: #fff;
 	box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.1);
 	margin-left: 30px;
 	margin-bottom: 30px;
+	@include tablets {
+		max-width: 530Px;
+		width: 100%;
+	}
+	@include phones {
+		max-width: 100%;
+		padding: 20Px 0;
+	}
+
+	&_new {
+		/* display: none; */
+	}
 
 	&__title {
 		display: flex;
@@ -412,7 +702,7 @@ body {
 		border-bottom: 1px solid $text-color;
 	}
 	&__skill-percent {
-		width: 17%;
+		min-width: 17%;
 		margin-left: 10px;
 		text-align: center;
 		border-bottom: 1px solid $text-color;
@@ -557,9 +847,12 @@ body {
 }
 
 .projects__work {
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: -30px;
+	width: 100%;
+	&-list {
+		margin-left: -30px;
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 
 /* ----------------------окно загрузки изображения -------------------------------- */
@@ -826,60 +1119,6 @@ body {
 	}
 }
 
-.work-btn {
-	width: calc(100% / 3 - 30px);
-	min-width: 280Px;
-	min-height: 560Px;
-	display: block;
-	background: linear-gradient( 0deg, rgb(0,106,237) 0%, rgb(32,80,220) 48%, rgb(63,53,203) 100%);
-	box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.1);
-	margin-left: 30px;
-	margin-bottom: 30px;
-	position: relative;
-	&:hover {
-		background: linear-gradient( 90deg, rgb(0,106,237) 0%, rgb(32,80,220) 48%, rgb(63,53,203) 100%);
-	}
-	
-	&__circle {
-		max-width: 150px;
-		max-height: 150px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		&:before,
-		&:after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			width: 25%;
-			height: 3px;
-			background-color: #fff;
-		}
-		&::before {
-			transform: translate(-50%, -50%);
-		}
-		&::after {
-			transform: translate(-50%, -50%) rotate(90deg);
-		}
-		@include phones {
-			max-width: 70px;
-			max-height: 70px;
-		}
-		@include circle(100%, 2px, #ffffff)
-	}
-	
-	@include tablets {
-		width: calc(100% / 2 - 30px);
-		min-width: 280Px;
-	}
-	@include phones {
-		min-width: 100%;
-		min-height: 115Px;
-	}
-}
 /* --------------------------------review------------------------------- */
 
 
@@ -891,9 +1130,6 @@ body {
 		background-color: #fff;
 		box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.1);
 		margin-bottom: 30px;
-		@include phones {
-			padding: 0;
-		}
 	}
 	&__title {
 		align-items: center;
@@ -902,23 +1138,37 @@ body {
 		font-size: 16px;
 	}
 	&__form {
-		width: 100%;
 		display: flex;
 		margin-top: 40px;
 		padding: 10px;
-		@include tablets {
+		@include phones {
 			flex-direction: column;
 			align-items: center;
+		}
+	}
+
+	&__comments {
+		width: 100%;
+		&-list {
+			margin-left: -30px;
+			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 }
 
 .user-photo {
+	width: 17%;
+	min-width: 100Px;
 	margin-right: 30px;
 	display: flex;
 	flex-direction: column;
+	@include phones {
+		margin-right: 0;
+		min-width: 200Px;
+	}
 	&__wrap {
-		width: 200px;
+		width: 100%;
 		margin: 0 auto;
 	}
 	&__photo {
@@ -948,15 +1198,34 @@ body {
 
 
 .recall {
-	width: 100%;
+	width: 60%;
+	margin-left: -30px;
+	@include desktop {
+		width: 70%;
+	}
+	@include tablets {
+		width: 100%;
+		margin: 0;
+	}
 
 	&__row {
 		display: flex;
 		margin-bottom: 30px;
+		@include phones {
+			flex-direction: column;
+			margin: 30px 0 0 0;
+		}
 	}
 	&__label {
 		display: block;
-		/* margin-right: 30px; */
+		width: 100%;
+		margin-left: 30px;
+		@include phones {
+			margin: 30px 0 0 0;
+			&:first-child {
+				margin: 0;
+			}
+		}
 	}
 	&__input {
 		display: block;
@@ -975,10 +1244,11 @@ body {
       }
 	}
 	&__title {
-		/* line-height: 1; */
+		line-height: 1;
 		font-weight: 700;
 		color: rgba($text-color, .5);
 		font-size: 16px;
+		white-space: nowrap;
 	}
 	&__textarea {
 		min-width: 100%;
@@ -992,9 +1262,126 @@ body {
 			border: 1px solid $main;
 		}
 	}
+	&__btn-container {
+		display: flex;
+		width: 100%;
+		justify-content: flex-end;
+	}
+}
+
+.comment {
+	width: calc(100% / 3 - 30px);
+	min-height: 380Px;
+	min-width: 280Px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #fff;
+	box-shadow: 4.096px 2.868px 20px 0px rgba(0, 0, 0, 0.1);
+	margin-left: 30px;
+	margin-bottom: 30px;
+	padding: 20Px;
+	@include tablets {
+		width: calc(100% / 2 - 30px);
+	}
+	@include phones {
+		width: 100%;
+	}
+
+	&__avatar {
+		width: 50px;
+		height: 50px;
+	}
+
+	&__head {
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid rgba($text-color,.3);
+		padding: 10Px 10Px 25Px;
+	}
+
+	&__user-container  {
+		margin-left: 20px;
+		.comment__user {
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.comment__user-rank {
+			color: rgba($text-color,.5);
+		}
+	}
+	&__btn-wrap {
+		margin-top: 30px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__content {
+		margin-top: 30px;
+		flex: 1;
+	}
 }
 
 
 
+.create-btn {
+	width: calc(100% / 3 - 30px);
+	min-height: 380Px;
+	min-width: 280Px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient( 0deg, rgb(0,106,237) 0%, rgb(32,80,220) 48%, rgb(63,53,203) 100%);
+	margin-left: 30px;
+	margin-bottom: 30px;
+	&:hover {
+		background: linear-gradient( 90deg, rgb(0,106,237) 0%, rgb(32,80,220) 48%, rgb(63,53,203) 100%);
+	}
+	@include tablets {
+		width: calc(100% / 2 - 30px);
+	}
+	@include phones {
+		width: 100%;
+		min-height: 115px;
+		flex-direction: row;
+	}
+	&__circle {
+		position: relative;
+		min-width: 125px;
+		min-height: 125px;
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 25%;
+			height: 3px;
+			background-color: #fff;
+		}
+		&::before {
+			transform: translate(-50%, -50%);
+		}
+		&::after {
+			transform: translate(-50%, -50%) rotate(90deg);
+		}
+		@include phones {
+			min-width: 70px;
+			min-height: 70px;
+		}
+		@include circle(auto,3px,white)
+	}
+	&__text {
+		margin-top: 20px;
+		font-size: 16px;
+		font-weight: 700;
+		color: white;
+		@include phones {
+			margin: 0 0 0 20px;
+		}
+	}
+}
 
 </style>
