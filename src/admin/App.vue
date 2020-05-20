@@ -57,19 +57,19 @@
 							.group__title
 								input(placeholder="Название новой группы" :value="''" name="group-name").group__input.group__name-group
 								.group__btns-wrap
-									button(type="button" name="group-edit-btn").btn-true
-									button(type="button" name="group-delete-btn").btn-false
+									button(type="button" name="group-edit-btn").btn-true.btn-true_active
+									button(type="button" name="group-delete-btn").btn-false.btn-false_active
 							.group__skills
-								.skill
+								.skill.skill_new
 									input(:disabled="false" :value="''" name="prof-name").skill__prof.skill__input
 									input(:disabled="false" :value="''" name="percent" type="number" min="0" max="100").skill__perc.skill__input
 									.group__btns-wrap
-										button(type="button" name="group-edit-btn").edit-btn
-										button(type="button" name="group-delete-btn").delete-btn
+										button(type="button" name="group-edit-btn").btn-true
+										button(type="button" name="group-delete-btn").btn-false
 							.group__skill-add
 								input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
 								input(placeholder="100 %" name="add-percent" type="number" min="0" max="100").group__skill-percent.group__input
-								button(type="button" name="group-add").group__btn
+								button(type="button" name="group-add" disabled="true").group__btn
 									.group__btn-wrap
 										.btn-plus
 						.group(v-for="group in ['Frontend','Backend']")
@@ -83,8 +83,8 @@
 									input(:disabled="false" :value="skill[0]" name="prof-name").skill__prof.skill__input
 									input(:disabled="false" :value="skill[1]" name="percent" type="number" min="0" max="100" placeholder="%").skill__perc.skill__input
 									.group__btns-wrap
-										button(type="button" name="group-edit-btn").edit-btn
-										button(type="button" name="group-delete-btn").delete-btn
+										button(type="button" name="group-edit-btn").btn-true
+										button(type="button" name="group-delete-btn").btn-false
 							.group__skill-add
 								input(placeholder="Новый навык" name="add-prof").group__skill-name.group__input
 								input(placeholder="100 %" name="add-percent" type="number" min="0" max="100").group__skill-percent.group__input
@@ -121,7 +121,7 @@
 								ul.load-form__tags
 									li.load-form__tag(v-for="tag in ['HTML', 'CSS', 'JavaScript']")
 										p {{tag}}
-										button.load-form__tag-btn.btn-false
+										button.load-form__tag-btn.btn-false.btn-false_active
 							.load-form__btn-wrap
 								button(type="reset").btn-toggle-cancel Отмена
 								button(type="button" name="project-add").load-form__btn.btn-toggle Сохранить
@@ -144,9 +144,9 @@
 									a.work__link http://loftschool.ru
 								.work__btn-wrap
 									button.work__btn Править
-										.edit-btn
+										.btn-true
 									button.work__btn Удалить
-										.btn-false
+										.btn-false.btn-false_active
 		section.section.reviews
 			.container-admin.container-admin_column
 				.section__title-wrap
@@ -192,10 +192,10 @@
 							.comment__content
 								p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
 							.comment__btn-wrap
-									button.work__btn Править
-										.edit-btn
-									button.work__btn Удалить
-										.btn-false
+									button.comment__btn Править
+										.btn-true
+									button.comment__btn Удалить
+										.btn-false.btn-false_active
 								
 </template>
 
@@ -510,7 +510,7 @@ body {
 		text-decoration: underline;
 		line-height: 1.5;
 		&:hover {
-			
+			color: #fff;
 		}
 	}
 }
@@ -561,7 +561,7 @@ body {
 /* ================ blue button plus ============ */
 
 .btn-plus {
-	display: flex;
+	/* display: flex; */
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -570,6 +570,7 @@ body {
 	&:hover {
 		background: linear-gradient( 90deg, rgb(0,106,237) 0%, rgb(32,80,220) 48%, rgb(63,53,203) 100%);
 	}
+	
 	&::before,
 	&::after {
 		content: '';
@@ -649,10 +650,6 @@ body {
 		padding: 20Px 0;
 	}
 
-	&_new {
-		/* display: none; */
-	}
-
 	&__title {
 		display: flex;
 		align-items: center;
@@ -722,6 +719,9 @@ body {
 	}
 	&__btn {
 		margin-left: 20px;
+		&:disabled .btn-plus {
+		background: rgba($text-color, .5);
+	}
 		&-wrap {
 			width: 40px;
 			height: 40px;
@@ -733,53 +733,34 @@ body {
 
 /* ----------- кнопки-------------------------------- */
 
-.edit-btn {
-	background: svg-load('pencil.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
-	width: 15px;
-	height: 15px;
-	opacity: .5;
-	&:hover {
-		opacity: 1;
-	}
-}
-
-.delete-btn {
-	background: svg-load('trash.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
-	width: 15px;
-	height: 15px;
-	opacity: .5;
-	&:hover {
-		opacity: 1;
-	}
-}
 
 .btn-true {
-	background: svg-load('tick.svg', fill=#00d70a, width=100%, height=100%) center center no-repeat;
+	background: svg-load('pencil.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
 	display: block;
 	width: 15px;
 	height: 15px;
+	opacity: .5;
+	&:hover {
+		opacity: 1;
+	}
+	&_active {
+		background: svg-load('tick.svg', fill=#00d70a, width=100%, height=100%) center center no-repeat;
+		opacity: .8;
+	}
 }
 .btn-false {
+	background: svg-load('trash.svg', fill=$text-color, width=100%, height=100%) center center no-repeat;
 	display: block;
 	position: relative;
 	width: 14px;
 	height: 14px;
-	&::before,
-	&::after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 15px;
-		height: 3px;
-		background-color: #bf2929;
+	opacity: .5;
+	&:hover {
+		opacity: 1;
 	}
-	&::before {
-		transform: translate(-50%, -50%) rotate(45deg);
-	}
-	&::after {
-		transform: translate(-50%, -50%) rotate(-45deg);
+	&_active {
+		background: svg-load('cross.svg', fill=#bf2929, width=100%, height=100%) center center no-repeat;
+		opacity: .8;
 	}
 }
 /* ------------------------------------------------------------------------------------- */
@@ -796,7 +777,7 @@ body {
 	}
 	&__perc {
 		width: 75px;
-		text-align: center;
+		text-align: right;
 	}
 	&__input {
 		display: block;
@@ -810,6 +791,9 @@ body {
 		font-size: 16px;
 		&:focus {
 			border-bottom: 1px solid $text-color;
+		}
+		&:hover {
+			background-color: rgba($text-color, .07);
 		}
 	}
 }
@@ -1011,8 +995,8 @@ body {
 			font-size: 13px;
 		}
 
-		&-btn.btn-false::before,::after {
-			background-color: #777;
+		&-btn.btn-false_active {
+			background: svg-load('cross.svg', fill=rgba($text-color, .5), width=100%, height=100%) center center no-repeat;
 		}
 		&-btn {
 			margin-left: 10px;
@@ -1108,11 +1092,11 @@ body {
 		display: flex;
 		align-items: center;
 		color: rgba($text-color,.7);
-		.edit-btn,
+		.btn-true,
 		.btn-false {
 			margin-left: 10px;
 		}
-		.edit-btn {
+		.btn-true {
 			background: svg-load('pencil.svg', fill=$links-color, width=100%, height=100%) center center no-repeat;
 			opacity: 1;
 		}
@@ -1314,6 +1298,19 @@ body {
 		margin-top: 30px;
 		display: flex;
 		justify-content: space-between;
+		.comment__btn {
+			display: flex;
+			align-items: center;
+			color: rgba($text-color,.7);
+			.btn-true,
+			.btn-false {
+				margin-left: 10px;
+			}
+			.btn-true {
+				background: svg-load('pencil.svg', fill=$links-color, width=100%, height=100%) center center no-repeat;
+				opacity: 1;
+			}
+		}
 	}
 
 	&__content {

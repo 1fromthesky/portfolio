@@ -142,30 +142,7 @@ html(lang="ru")
 						section.section.section_flex-column-center.feedback
 							.container
 								#feedback-component
-						section.section.connect
-							.container
-								h2.connect__title Связаться со мной
-								.connect__form
-									form.form-connect(name='formConnect')
-										.form-connect__row
-											label.form-connect__label
-												input.form-connect__input(type='text', name='username', required="" autocomplete="off")
-												.form-connect__title Введите ваше имя
-												.form-connect__icon-wrap
-													+icon('user', 'form-connect__icon')
-											label.form-connect__label
-												input.form-connect__input(type='email', name='email', required="")
-												.form-connect__title Введите ваш email
-												.form-connect__icon-wrap
-													+icon('envelope', 'form-connect__icon')
-										.form-connect__row
-											label.form-connect__label
-												textarea.form-connect__input.form-connect__textarea(name='comments', required="")
-												.form-connect__title Сообщение к письму
-												.form-connect__icon-wrap
-													+icon('message', 'form-connect__icon')
-										.form-connect__row.form-connect_btn
-											button.btn(type='submit' name="btn-submit") Отправить
+						include ./templates/components/form.pug
 			footer.footer
 				.container.footer__container
 					.footer__column-left
